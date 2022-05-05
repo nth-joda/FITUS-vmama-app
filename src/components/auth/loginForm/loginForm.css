@@ -1,5 +1,5 @@
 .loginForm{
-    margin-top: 3rem;
+    margin-top: 1rem;
     width: calc(var(--container-width-lg) - 30%);
     margin-left:auto;
     margin-right:auto;
@@ -16,7 +16,6 @@
 }
 
 .loginForm__form{
-
     padding:0.5rem;
 }
 
@@ -28,22 +27,16 @@
 }
 
 .loginForm__fields{
-    margin: 2rem;
+    margin: 2rem auto;
     width: var(--container-width-lg);
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    gap: 2rem;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .loginForm__userInput-field{
-    border: 0.2rem solid var(--color-main);
-    border-radius: 0.5rem;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     line-height: 2rem;
     display: grid;
-    grid-template-columns: 15% 85%;
+    grid-template-columns: 15% 80%;
+    margin-bottom: 2rem;
 
 }
 
@@ -54,23 +47,23 @@
     display: inline-block;
     text-align: center;
     line-height: 2rem;
-    margin-left: -2px;
-    margin-top: -2px;
+    border-radius: 0.5rem 0 0 0.5rem;
 }
 
 .loginForm__userInput-field input{
-    font-size: 1.5rem;
+    border: 0.2rem solid var(--color-main);
+    border-radius: 0 0.5rem 0.5rem 0;
+    font-size: 1.2rem;
     line-height: 2rem;
+    padding: 0 0.8rem;
     background-color: transparent;
-    margin-left: 1.5rem;
-    margin-right: 1.5rem;
 }
 
 .loginForm__help{
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin: 1.5rem auto;
-    padding: 0 1rem 1.5rem;
+    padding: 0 1rem 1rem;
 }
 
 .loginForm__help label{
@@ -91,9 +84,50 @@
 
 .loginForm__submit{
     margin: 0 auto;
+    font-size: 1rem;
 }
 
 .loginForm__cta{
     text-align: center;
     margin: 0 auto;
+}
+
+/* ========== Media Queries (MEDIUM DEVICES): ========== */
+@media screen and (max-width: 1024px) {
+    .loginForm{
+        width: calc(var(--container-width-md) - 20%);
+    }
+
+    .loginForm__fields{
+        width: var(--container-width-md);
+    }
+}
+
+/* ========== Media Queries (SMALL DEVICES): ========== */
+@media screen and (max-width: 600px) {
+    .loginForm{
+        width: var(--container-width-sm);
+    }
+
+    .loginForm__fields{
+        width: var(--container-width-sm);
+    }
+
+    .loginForm__help{
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .loginForm__help label{
+        align-self: center;
+        font-size: 1rem;
+    }
+    
+    .loginForm__help a{
+        text-align: center;
+        font-size: 1.2rem;
+        /* text-align: left; */
+    }
 }
