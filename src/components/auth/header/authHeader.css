@@ -1,0 +1,14 @@
+#authHeader{
+    margin-top: 3rem;
+    text-align: center;
+}
+
+#authHeader__logo{
+    max-width: 10rem;
+}
+
+#authHeader__appname{
+    font-size: 4rem;
+    font-weight: 600;
+    color: var(--color-main);
+}

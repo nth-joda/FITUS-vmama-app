@@ -1,0 +1,99 @@
+.loginForm{
+    margin-top: 3rem;
+    width: calc(var(--container-width-lg) - 30%);
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.loginForm__greeting{
+    color: var(--color-main);
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 1.8rem;
+    border: 0.2rem solid var(--color-main);
+    border-bottom: none;
+    border-radius: 0.7rem 0.7rem 0 0;
+}
+
+.loginForm__form{
+
+    padding:0.5rem;
+}
+
+.loginForm__userInput{
+    border: 0.2rem solid var(--color-main);
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 0 0 0.7rem 0.7rem;
+}
+
+.loginForm__fields{
+    margin: 2rem;
+    width: var(--container-width-lg);
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.loginForm__userInput-field{
+    border: 0.2rem solid var(--color-main);
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    display: grid;
+    grid-template-columns: 15% 85%;
+
+}
+
+.loginForm__userInput-field label{
+    background-color:var(--color-main);
+    color: var(--color-white);
+    padding: 0.5rem;
+    display: inline-block;
+    text-align: center;
+    line-height: 2rem;
+    margin-left: -2px;
+    margin-top: -2px;
+}
+
+.loginForm__userInput-field input{
+    font-size: 1.5rem;
+    line-height: 2rem;
+    background-color: transparent;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+
+.loginForm__help{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 1.5rem auto;
+    padding: 0 1rem 1.5rem;
+}
+
+.loginForm__help label{
+    align-self: center;
+    font-size: 1.2rem;
+}
+
+#rememberAcc{
+    transform: scale(1.5);
+    margin-right: 0.8rem;
+}
+
+.loginForm__help a{
+    align-self: center;
+    font-size: 1.2rem;
+    text-align: right;
+}
+
+.loginForm__submit{
+    margin: 0 auto;
+}
+
+.loginForm__cta{
+    text-align: center;
+    margin: 0 auto;
+}
