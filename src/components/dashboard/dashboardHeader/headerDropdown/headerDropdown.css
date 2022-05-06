@@ -1,0 +1,25 @@
+.headerDropdown{
+    background-color: #eeeee4;
+    width: 15%;
+    padding: 1.5rem 1rem 1.5rem 3rem;
+    border-radius: 1.5rem;
+    box-shadow: 3px 5px rgba(0,0,0,0.1);
+    display: fix;
+    float: right;
+}
+
+.dropdown-item{
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin-bottom: 1.2rem;
+}
+
+.dropdown-item a{
+    text-decoration: none;
+    color: var(--color-black);
+    transition: var(--transition);
+}
+
+.dropdown-item a:hover{
+    font-size: 1.7rem;
+}
