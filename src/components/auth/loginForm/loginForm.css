@@ -117,12 +117,12 @@
         width: var(--container-width-sm);
     }
 
-    .loginForm__help{
+    /* .loginForm__help{
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr;
         gap: 1rem;
         margin-bottom: 1rem;
-    }
+    } */
 
     .loginForm__help label{
         align-self: center;
