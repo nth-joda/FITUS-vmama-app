@@ -1,13 +1,15 @@
 import React from 'react'
 import "./dashboard.css"
 import DashboardHeader from './dashboardHeader/DashboardHeader'
+import LeftNav from './leftNav/LeftNav';
+
 const Dashboard = () => {
   return (
     <div>
       <DashboardHeader/>
-      <div>Dashboard </div>
+      <LeftNav />
     </div>
   )
 }
 
-export default Dashboard
+export default Dashboard;
