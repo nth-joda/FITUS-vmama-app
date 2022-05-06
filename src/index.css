@@ -30,6 +30,7 @@ code {
   --color-main: #005593;
   --color-white: #fff;
   --color-black: #000;
+  --color-shadow: rgba(149, 157, 165, 0.4) 0px 8px 24px;
 
   --container-width-lg: 75%;
   --container-width-md: 86%;

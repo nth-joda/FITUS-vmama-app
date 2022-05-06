@@ -1,17 +1,23 @@
 .headerDropdown{
-    background-color: #eeeee4;
     width: 15%;
-    padding: 1.5rem 1rem 1.5rem 3rem;
-    border-radius: 1.5rem;
-    box-shadow: 3px 5px rgba(0,0,0,0.1);
-    display: fix;
-    float: right;
+    padding: 1.5rem 1rem;
+    border-radius: 0.8rem;
+    box-shadow: var(--color-shadow) ;
+    right: 4rem;
+    position: absolute;
+}
+
+.headerList{
+    display: grid;
+    grid-template-rows: max-content;
+    gap: 1rem;
 }
 
 .dropdown-item{
     font-size: 1.5rem;
     line-height: 2rem;
-    margin-bottom: 1.2rem;
+    text-align: center;
+    background-color: var(--color-white);
 }
 
 .dropdown-item a{
@@ -22,4 +28,7 @@
 
 .dropdown-item a:hover{
     font-size: 1.7rem;
+    font-weight: 600;
+    color: var(--color-main);
+    text-decoration: underline;
 }

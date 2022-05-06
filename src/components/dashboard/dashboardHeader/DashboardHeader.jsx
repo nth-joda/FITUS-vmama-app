@@ -3,9 +3,12 @@ import "./dashboardHeader.css"
 import HeaderDropdown from './headerDropdown/HeaderDropdown'
 
 const DashboardHeader = () => {
+  const showDropdownHandler = () => {
+
+  }
   return (
     <div className="dashboardHeader">
-        <div className="dashboardHeader__logo">
+        <div className="dashboardHeader__logo" onClick={showDropdownHandler}>
             <h2>VMAMA</h2>
         </div>
         <div className="dashboardHeader__menu">
@@ -14,8 +17,12 @@ const DashboardHeader = () => {
                 <div className="profile-name">Nguyen Van A</div>
                 <i className='bx bxs-down-arrow profile-dropdown'></i>
             </div>
+            <div className="dashboardHeader__dropdown">
+              <HeaderDropdown></HeaderDropdown>
+            </div>
         </div>
-        <HeaderDropdown ></HeaderDropdown>
+        
+        
     </div>
   )
 }

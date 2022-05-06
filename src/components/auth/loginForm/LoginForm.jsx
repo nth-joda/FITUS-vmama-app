@@ -11,13 +11,15 @@ const LoginForm = () => {
             <div className="loginForm__userInput">
                 <div className="loginForm__fields">
                     <div className="loginForm__userInput-field">
-                        <label htmlFor="username">TK</label>
+                        <label htmlFor="username">
+                        <i className='bx bx-user'></i>
+                        </label>
                         <input type="text" name="username" placeholder="Username/email" />
                     </div>
 
                     <div className="loginForm__userInput-field">
-                        <label htmlFor="password">MK</label>
-                        <input type="text" name="password" placeholder="Password" />
+                        <label htmlFor="password"><i className='bx bxs-lock'></i></label>
+                        <input type="password" name="password" placeholder="Password" />
                     </div>
                 </div>
             </div>

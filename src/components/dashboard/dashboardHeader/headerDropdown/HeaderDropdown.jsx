@@ -3,7 +3,7 @@ import "./headerDropdown.css"
 const HeaderDropdown = () => {
   return (
     <div className="headerDropdown">
-        <ul>
+        <ul className="headerList">
             <li className="dropdown-item">
                 <a href="#">Cài đặt</a>
             </li>
