@@ -1,5 +1,5 @@
 .loginForm{
-    width: calc(var(--container-width-lg) - 30%);
+    width: calc(var(--container-width-lg) - 45%);
     position: absolute;
     margin-top: 1.5rem;
     top: 50%;
@@ -13,7 +13,7 @@
     text-align: center;
     padding: 0.5rem;
     font-size: 1.8rem;
-    border: 0.2rem solid var(--color-main);
+    border: 0.15rem solid var(--color-main);
     border-bottom: none;
     border-radius: 0.7rem 0.7rem 0 0;
 }
@@ -23,7 +23,7 @@
 }
 
 .loginForm__userInput{
-    border: 0.2rem solid var(--color-main);
+    border: 0.15rem solid var(--color-main);
     margin-left: auto;
     margin-right: auto;
     border-radius: 0 0 0.7rem 0.7rem;
@@ -38,7 +38,7 @@
     font-size: 1.5rem;
     line-height: 3rem;
     display: grid;
-    grid-template-columns: 15% 80%;
+    grid-template-columns: 15% 85%;
     margin-bottom: 3rem;
 
 }
@@ -54,7 +54,7 @@
 }
 
 .loginForm__userInput-field input{
-    border: 0.2rem solid var(--color-main);
+    border: 0.15rem solid var(--color-main);
     border-radius: 0 0.5rem 0.5rem 0;
     font-size: 1.5rem;
     line-height: 2rem;
@@ -71,7 +71,7 @@
 
 .loginForm__help label{
     align-self: center;
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 
 #rememberAcc{
@@ -81,7 +81,7 @@
 
 .loginForm__help a{
     align-self: center;
-    font-size: 1.5rem;
+    font-size: 1rem;
     text-align: right;
 }
 
@@ -117,21 +117,4 @@
         width: var(--container-width-sm);
     }
 
-    /* .loginForm__help{
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr;
-        gap: 1rem;
-        margin-bottom: 1rem;
-    } */
-
-    .loginForm__help label{
-        align-self: center;
-        font-size: 1rem;
-    }
-    
-    .loginForm__help a{
-        text-align: center;
-        font-size: 1.2rem;
-        /* text-align: left; */
-    }
 }

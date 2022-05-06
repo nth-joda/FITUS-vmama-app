@@ -7,7 +7,7 @@ const LoginForm = () => {
   return (
     <div className="loginForm">
         <form className="loginForm__form">
-            <h2 className="loginForm__greeting">Xin Chào !</h2>
+            <h2 className="loginForm__greeting">Xin Chào</h2>
             <div className="loginForm__userInput">
                 <div className="loginForm__fields">
                     <div className="loginForm__userInput-field">
