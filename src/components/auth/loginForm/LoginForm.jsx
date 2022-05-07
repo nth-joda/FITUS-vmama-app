@@ -1,5 +1,10 @@
 import React from 'react'
+import Checkbox from '@mui/material/Checkbox';
+
 import "./loginForm.css"
+
+const label_NhoMK = { inputProps: { 'aria-label': 'Nhớ Mật Khẩu' } };
+
 const LoginForm = () => {
     const formSubmitHandler = (value) =>{
         console.alert(value);
@@ -14,7 +19,7 @@ const LoginForm = () => {
                         <label htmlFor="username">
                         <i className='bx bx-user'></i>
                         </label>
-                        <input type="text" name="username" placeholder="Username/email" />
+                        <input type="text" name="username" placeholder="Username / email" />
                     </div>
 
                     <div className="loginForm__userInput-field">
@@ -24,7 +29,9 @@ const LoginForm = () => {
                 </div>
             </div>
             <div className="loginForm__help">
-                <label><input type="checkbox" name="rememberAcc" id="rememberAcc"></input>Nhớ tài khoản</label>
+                <label>
+                    <Checkbox name="rememberAcc" id="rememberAcc" />
+                    Nhớ tài khoản</label>
                 <a href="#" className="forgotPassword">Quên mật khẩu?</a>
             </div>
             <div className="loginForm__cta">
