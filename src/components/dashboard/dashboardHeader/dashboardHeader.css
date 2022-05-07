@@ -25,8 +25,7 @@
 
 .profile-avt{
     display: inline-block;
-    margin: auto 1rem;
-    font-size: 3rem;
+    margin: auto 0.5rem;
     top: -20%;
     -webkit-transform: translateY(20%);
     transform: translateY(20%);
@@ -34,7 +33,7 @@
 
 .profile-name{
     display: inline;
-    font-size: 1.5rem;
+    font-size: 1.2em;
     font-weight: 500;
     margin-right: 1rem;
 }
@@ -49,10 +48,9 @@
 
 .dashboardHeader__dropdown{
     display: none;
-    transition: var(--transition);
-    
+    overflow: hidden;
 }
 
 .dashboardHeader__menu:hover .dashboardHeader__dropdown{
     display: block;
-}
+}   

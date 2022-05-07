@@ -1,6 +1,7 @@
 import React from 'react'
 import "./dashboardHeader.css"
 import HeaderDropdown from './headerDropdown/HeaderDropdown'
+import PersonIcon from '@mui/icons-material/Person';
 
 const DashboardHeader = () => {
   const showDropdownHandler = () => {
@@ -13,9 +14,8 @@ const DashboardHeader = () => {
         </div>
         <div className="dashboardHeader__menu">
             <div className="dashboardHeader__menu-profile">
-                <i className='bx bxs-user-circle profile-avt'></i>
+                <PersonIcon className='profile-avt'></PersonIcon>
                 <div className="profile-name">Nguyen Van A</div>
-                <i className='bx bxs-down-arrow profile-dropdown'></i>
             </div>
             <div className="dashboardHeader__dropdown">
               <HeaderDropdown></HeaderDropdown>
