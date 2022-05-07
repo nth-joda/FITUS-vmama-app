@@ -1,11 +1,12 @@
 import React from "react";
+import DiscountIcon from '@mui/icons-material/Discount';
 import "./navOption.css"
 
 const NavOption = (props) => {
     return (
         <div className="NavOption">
-            <p>{props.icon}</p>
-            <p>{props.dpName}</p>
+            <DiscountIcon className="NavOption__icon" />
+            <p className="NavOption_name">{props.dpName}</p>
         </div>
     )
 }

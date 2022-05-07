@@ -1,0 +1,7 @@
+.leftNav{
+    width: 15%;
+    display: grid;
+    grid-template-rows: auto;
+    gap: 1.7rem;
+    margin-left: 1.2rem;
+}
