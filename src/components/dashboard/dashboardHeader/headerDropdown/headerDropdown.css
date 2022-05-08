@@ -79,13 +79,17 @@
         background-color: var(--color-background-gray);
         box-shadow: var(--color-shadow) ;
     }
-    
+    .headerDropdown{
+        width: 35%;
+        padding: 0.7rem 0;
+        border-radius: 0.6rem;
+        top: 3.2rem;
+    }
 }
 
 /* ========== Media Queries (SMALL DEVICES): ========== */
 @media screen and (max-width: 600px) {
     .headerDropdown{
-
         width: 60%;
         padding: 0.7rem 0;
         border-radius: 0.6rem;

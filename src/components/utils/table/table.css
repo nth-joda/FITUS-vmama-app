@@ -15,12 +15,14 @@ thead {
 
 tr {
     text-align: left;
+    font-weight: 600;
+    font-size: 1.2rem;
 }
 
 th,
 td {
     text-transform: capitalize;
-    padding: 15px 10px;
+    padding: 6px 12px;
 }
 
 tbody > tr:hover {

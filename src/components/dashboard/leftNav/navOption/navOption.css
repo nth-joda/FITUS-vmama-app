@@ -1,6 +1,6 @@
 .NavOption{
     display: grid;
-    grid-template-columns: 20% 80%;
+    grid-template-columns: 20% 75%;
     gap: 1rem;
     padding: 1.2rem 2rem;
     font-size: 1.8rem;
@@ -9,7 +9,8 @@
     background-color: var(--color-main);
     border-radius: 0.6rem;
     border: 1px solid transparent;
-    transition: var(--transition)
+    transition: var(--transition);
+    cursor: pointer;
 }
 .NavOption__icon{
     display: inline-block;
@@ -24,4 +25,32 @@
     background-color: transparent;
     color: var(--color-main);
     border-color:var(--color-main);
+}
+
+/* ========== Media Queries (MEDIUM DEVICES): ========== */
+@media screen and (max-width: 1024px) {
+    .NavOption{
+        display: grid;
+        grid-template-columns: 15% 80%;
+        gap: 0.7rem;
+        padding: 0.9rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+        transition: var(--transition)
+    }
+
+    .NavOption__icon{
+        transform: scale(1);
+        margin-top: 3px;
+        display: none;
+    }
+
+    .NavOption__name{
+        text-align: center;
+
+    }
+}
+
+/* ========== Media Queries (SMALL DEVICES): ========== */
+@media screen and (max-width: 600px) {
 }
