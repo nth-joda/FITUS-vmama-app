@@ -23,7 +23,9 @@
 /* ========== Media Queries (SMALL DEVICES): ========== */
 @media screen and (max-width: 600px) {
     .vouchers__header{
-        display: block;
-        margin-bottom: 1rem;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+
+        margin-bottom: 0;
     }
 }
