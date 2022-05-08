@@ -10,7 +10,7 @@
     background-color: var(--color-background-content);
     color: var(--color-white);
     border-radius: 0.5rem;
-    margin:0 0.7rem;
+    margin:0 0.7rem 0.7rem 0.7rem;
 }
 
 /* ========== Media Queries (MEDIUM DEVICES): ========== */
