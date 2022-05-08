@@ -1,0 +1,11 @@
+.vouchers__header{
+    display: grid;
+    grid-template-columns: 40% 60%;
+    gap: 1rem;
+}
+
+/* .cta-edit{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */

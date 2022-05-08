@@ -7,7 +7,7 @@
     font-weight: 700;
     color: var(--color-white);
     background-color: var(--color-main);
-    border-radius: 0.6rem 0 0 0.6rem;
+    border-radius: 0.6rem;
     border: 1px solid transparent;
     transition: var(--transition)
 }

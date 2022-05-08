@@ -3,6 +3,9 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import LogoutIcon from '@mui/icons-material/Logout';
 
 import "./headerDropdown.css"
+
+
+
 const HeaderDropdown = () => {
   return (
     <div className="headerDropdown">
@@ -13,7 +16,7 @@ const HeaderDropdown = () => {
                   Cài đặt
                 </a>
             </li>
-            <li className="dropdown-item">
+            <li className="dropdown-item logout">
                 <a href="#">
                   <LogoutIcon className="dropdown-icon" />
                   Đăng xuất

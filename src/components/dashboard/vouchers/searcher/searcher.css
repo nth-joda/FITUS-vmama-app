@@ -1,0 +1,12 @@
+.searcher{
+    padding: 0.3rem 0.3rem 0.3rem;
+    background-color: var(--color-white);
+    border: 1px solid transparent;
+    border-radius: 0.3rem;
+}
+
+.searcher__form{
+    display: grid;
+    grid-template-columns: 89% 10%;
+    gap: 0.3rem;
+}

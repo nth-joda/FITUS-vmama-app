@@ -1,0 +1,15 @@
+.dashboard_content{
+    display: grid;
+    grid-template-columns: 15% 85%;
+    margin-top: 2rem;
+    
+}
+
+.dashboard__container{
+    display: inline-block;
+    padding: 1rem;
+    background-color: var(--color-background-content);
+    color: var(--color-white);
+    border-radius: 0.5rem;
+    margin: 0 1.5rem 0 0.7rem;
+}
