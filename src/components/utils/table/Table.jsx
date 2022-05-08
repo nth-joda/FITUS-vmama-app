@@ -34,20 +34,20 @@ return (
     <div>
         <div className="table-wrapper">
             <table>
-            {props.headData && props.renderHeader ? (
-                <thead>
-                <tr>
-                    {props.headData.map((item, index) =>
-                    props.renderHeader(item, index)
-                    )}
-                </tr>
-                </thead>
-            ) : null}
-            {props.bodyData && props.renderBody ? (
-                <tbody>
-                {dataShown.map((item, index) => props.renderBody(item, index))}
-                </tbody>
-            ) : null}
+                {props.headData && props.renderHeader ? (
+                    <thead>
+                    <tr>
+                        {props.headData.map((item, index) =>
+                        props.renderHeader(item, index)
+                        )}
+                    </tr>
+                    </thead>
+                ) : null}
+                {props.bodyData && props.renderBody ? (
+                    <tbody>
+                    {dataShown.map((item, index) => props.renderBody(item, index))}
+                    </tbody>
+                ) : null}
             </table>
         </div>
         

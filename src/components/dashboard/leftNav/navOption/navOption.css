@@ -14,7 +14,7 @@
 }
 .NavOption__icon{
     display: inline-block;
-    transform: scale(1.4) translateY(30%);
+    transform: scale(1.4);
 }
 
 .NavOption__name{
@@ -30,27 +30,32 @@
 /* ========== Media Queries (MEDIUM DEVICES): ========== */
 @media screen and (max-width: 1024px) {
     .NavOption{
-        display: grid;
-        grid-template-columns: 15% 80%;
-        gap: 0.7rem;
+        display: block;
         padding: 0.9rem;
         font-size: 1.2rem;
         font-weight: 600;
-        transition: var(--transition)
-    }
-
-    .NavOption__icon{
-        transform: scale(1);
-        margin-top: 3px;
-        display: none;
-    }
-
-    .NavOption__name{
+        transition: var(--transition);
         text-align: center;
-
+    }
+    .NavOption__icon{
+        display: none;
     }
 }
 
 /* ========== Media Queries (SMALL DEVICES): ========== */
 @media screen and (max-width: 600px) {
+    .NavOption{
+        gap: 0.7rem;
+        padding: 0.5rem;
+        font-size: 0.7rem;
+        font-weight: 600;
+        transition: var(--transition)
+    }
+
+    .NavOption__icon{
+        display: none;
+        transform: scale(1);
+        margin-top: 3px;
+        display: none;
+    }
 }

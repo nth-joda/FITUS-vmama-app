@@ -5,12 +5,12 @@
 }
 
 .dashboard__container{
-    display: inline-block;
+    display: block;
     padding: 1rem;
     background-color: var(--color-background-content);
     color: var(--color-white);
     border-radius: 0.5rem;
-    margin: 0 1.5rem 0 0.7rem;
+    margin:0 0.7rem;
 }
 
 /* ========== Media Queries (MEDIUM DEVICES): ========== */
@@ -23,4 +23,7 @@
 
 /* ========== Media Queries (SMALL DEVICES): ========== */
 @media screen and (max-width: 600px) {
+    .dashboard_content{
+        margin-top: 0.7rem;
+    }
 }

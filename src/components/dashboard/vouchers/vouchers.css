@@ -1,7 +1,8 @@
 .vouchers__header{
     display: grid;
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 40% 55%;
     gap: 1rem;
+    margin-bottom: 2rem;
 }
 
 /* .cta-edit{
@@ -9,3 +10,20 @@
     align-items: center;
     justify-content: center;
 } */
+
+
+/* ========== Media Queries (MEDIUM DEVICES): ========== */
+@media screen and (max-width: 1024px) {
+    .vouchers__header{
+        grid-template-columns: 65% 32%;
+        gap: 0.5rem;
+    }
+}
+
+/* ========== Media Queries (SMALL DEVICES): ========== */
+@media screen and (max-width: 600px) {
+    .vouchers__header{
+        display: block;
+        margin-bottom: 1rem;
+    }
+}

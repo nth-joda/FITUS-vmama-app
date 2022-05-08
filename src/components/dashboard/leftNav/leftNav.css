@@ -19,4 +19,7 @@
 
 /* ========== Media Queries (SMALL DEVICES): ========== */
 @media screen and (max-width: 600px) {
+    .leftNav{
+        margin: 0.5rem;
+    }
 }

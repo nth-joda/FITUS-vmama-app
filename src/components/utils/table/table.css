@@ -22,7 +22,7 @@ tr {
 th,
 td {
     text-transform: capitalize;
-    padding: 6px 12px;
+    padding: 6px 14px;
 }
 
 tbody > tr:hover {
@@ -63,4 +63,17 @@ tbody > tr:hover {
 .table__pagination-item:hover {
     color: var(--color-black);
     background-color: var(--color-background-gray);
+}
+
+
+/* ========== Media Queries (MEDIUM DEVICES): ========== */
+@media screen and (max-width: 1024px) {
+}
+
+/* ========== Media Queries (SMALL DEVICES): ========== */
+@media screen and (max-width: 600px) {
+    tr {
+        font-weight: 500;
+        font-size: 0.7rem;
+    }
 }
