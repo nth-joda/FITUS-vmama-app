@@ -9,6 +9,8 @@ const LeftNav = () => {
             <NavOption icon={"voucher"} dpName="Vouchers" />
             <NavOption icon={"policy"} dpName="Policy" />
             <NavOption icon={"product"} dpName="Product" />
+            <NavOption icon={"policy"} dpName="Policy" />
+            <NavOption icon={"product"} dpName="Product" />
         </div>
     )
 }
