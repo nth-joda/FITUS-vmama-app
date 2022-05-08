@@ -10,7 +10,7 @@ const DashboardHeader = () => {
   return (
     <div className="dashboardHeader">
         <div className="dashboardHeader__logo" onClick={showDropdownHandler}>
-            <h2>VMAMA</h2>
+            VMAMA
         </div>
         <div className="dashboardHeader__menu">
             <div className="dashboardHeader__menu-profile">
