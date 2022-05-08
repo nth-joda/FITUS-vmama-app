@@ -75,6 +75,10 @@
         font-weight: 600;
         margin-left: 3rem;
     }
+    
+    .dashboardHeader__menu{
+        margin-right: 0.5rem;
+    }
 }
 
 /* ========== Media Queries (SMALL DEVICES): ========== */

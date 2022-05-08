@@ -10,7 +10,7 @@ const Searcher = () => {
         <form className="searcher__form">
             <TextField
                 className="searcher__form-input" 
-                sx={{fontSize:16, "& .MuiOutlinedInput-input": {padding:'0'} }} 
+                size="small"
                 label="Nhập tên voucher..." 
                 variant="filled" />
             <Button className="searcher__button" type="submit" variant="outlined">

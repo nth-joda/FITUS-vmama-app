@@ -19,12 +19,12 @@ const LoginForm = () => {
                         <label htmlFor="username">
                         <i className='bx bx-user'></i>
                         </label>
-                        <input type="text" name="username" placeholder="Username / email" />
+                        <input type="text" name="username" placeholder="Tên đăng nhập / Địa chỉ email" />
                     </div>
 
                     <div className="loginForm__userInput-field">
                         <label htmlFor="password"><i className='bx bxs-lock'></i></label>
-                        <input type="password" name="password" placeholder="Password" />
+                        <input type="password" name="password" placeholder="Mật khẩu" />
                     </div>
                 </div>
             </div>

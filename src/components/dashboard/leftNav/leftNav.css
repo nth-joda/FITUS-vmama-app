@@ -4,3 +4,22 @@
     gap: 1.7rem;
     margin-left: 1.2rem;
 }
+
+/* ========== Media Queries (MEDIUM DEVICES): ========== */
+@media screen and (max-width: 1024px) {
+    .leftNav{
+        display: grid;
+        gap: 0.7rem;
+        margin: 1rem;
+        grid-auto-flow: column;
+        grid-template-rows: 1fr;
+        grid-template-columns: repeat(auto-fit, min-content) !important;
+    }
+}
+
+/* ========== Media Queries (SMALL DEVICES): ========== */
+@media screen and (max-width: 600px) {
+    .leftNav{
+        margin: 0.5rem;
+    }
+}

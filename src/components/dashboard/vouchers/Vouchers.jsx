@@ -22,14 +22,14 @@ const renderHead = (item, index) => <th key={index}>{item}</th>;
 const renderBody = (item, index) => (
   <tr key={index}>
     <td>{item.id}</td>
-    <td>{item.vName}</td>
-    <td>{item.bName}</td>
+    <td>{item.vName.substring(0,10)}</td>
+    <td>{item.bName.substring(0,10)}</td>
     <td>{item.left}</td>
     <td>{item.used}</td>
     <td className="cta-edit">
-    <IconButton aria-label="edit" size="large" sx={{color: "var(--color-main)", transform:"scale(1.1)"}}>
-      <EditIcon />
-    </IconButton>
+      <IconButton aria-label="edit" size="large" sx={{color: "var(--color-main)", transform:"scale(1.1)"}}>
+        <EditIcon />
+      </IconButton>
     </td>
   </tr>
 );

@@ -10,3 +10,25 @@
     grid-template-columns: 89% 10%;
     gap: 0.3rem;
 }
+
+
+/* ========== Media Queries (MEDIUM DEVICES): ========== */
+@media screen and (max-width: 1024px) {
+    .searcher__form{
+        grid-template-columns: 85% 14%;
+        gap: 0.3rem;
+    }
+    
+}
+
+/* ========== Media Queries (SMALL DEVICES): ========== */
+@media screen and (max-width: 600px) {
+    .searcher{
+        padding: 0.2rem;
+    }
+
+    .searcher__form{
+        grid-template-columns: 78% 14%;
+        gap: 0.3rem;
+    }
+}
