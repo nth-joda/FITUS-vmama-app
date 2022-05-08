@@ -1,0 +1,5 @@
+.vouchers__header{
+    display: grid;
+    grid-template-columns: 40% 60%;
+    gap: 1rem;
+}

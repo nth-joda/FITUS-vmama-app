@@ -1,0 +1,13 @@
+.updater{
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(9 , 6rem);
+    direction: rtl;
+    margin-right: 2rem;
+}
+.dashboard-button{
+    align-self: center;
+    height: 75%;
+    width: 6rem;
+    direction: ltr;
+}
