@@ -5,13 +5,15 @@ import PersonIcon from '@mui/icons-material/Person';
 
 const clickOutsideRef = (content_ref, toggle_ref) => {
   document.addEventListener("mousedown", (e) => {
-    // user clicks toggle
+    // user clicks toggler
     if (toggle_ref.current && toggle_ref.current.contains(e.target)) {
       content_ref.current.classList.toggle("show");
+      console.log("show dropdown");
     } else {
       // user clicks outside toggle and content
       if (content_ref.current && !content_ref.current.contains(e.target)) {
         content_ref.current.classList.remove("show");
+        console.log("hide dd");
       }
     }
   });
