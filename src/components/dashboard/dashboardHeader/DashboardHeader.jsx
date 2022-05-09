@@ -7,12 +7,16 @@ const clickOutsideRef = (content_ref, toggle_ref) => {
   document.addEventListener("mousedown", (e) => {
     // user clicks toggler
     if (toggle_ref.current && toggle_ref.current.contains(e.target)) {
-      content_ref.current.classList.toggle("show");
+      // content_ref.current.classList.toggle("show");
+      const dropdown_el = document.getElementById("dashboardHeader__dropdown");
+      dropdown_el.classList.toggle("show");
       console.log("show dropdown");
     } else {
       // user clicks outside toggle and content
       if (content_ref.current && !content_ref.current.contains(e.target)) {
-        content_ref.current.classList.remove("show");
+        // content_ref.current.classList.remove("show");
+        const dropdown_el_hide = document.getElementById("dashboardHeader__dropdown");
+        dropdown_el_hide.classList.remove("show");
         console.log("hide dd");
       }
     }
