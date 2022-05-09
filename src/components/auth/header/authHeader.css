@@ -24,7 +24,21 @@
     }
 
     #authHeader__appname{
-        font-size: 3rem;
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 1540px) {
+    #authHeader{
+        margin-top: 1rem;
+    }
+
+    #authHeader__logo{
+        max-width: 7rem;
+    }
+
+    #authHeader__appname{
+        font-size: 1.7em;
     }
 }
 

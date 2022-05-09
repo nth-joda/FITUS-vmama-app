@@ -98,7 +98,18 @@
 /* ========== Media Queries (MEDIUM DEVICES): ========== */
 @media screen and (max-width: 1800px) {
     .loginForm{
-        width: calc(var(--container-width-md) - 20%);
+        width: calc(var(--container-width-md) - 30%);
+    }
+
+    .loginForm__fields{
+        width: var(--container-width-md);
+    }
+}
+
+@media screen and (max-width: 1550px) {
+    .loginForm{
+        width: calc(var(--container-width-md) - 50%);
+        margin-top: 3.5rem;
     }
 
     .loginForm__fields{
