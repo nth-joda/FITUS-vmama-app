@@ -20,7 +20,8 @@
     }
     .dashboard-button{
         align-self: center;
-        width: 5.2rem;
+        width: 5.5rem;
+        height: 100%;
         direction: ltr;
         padding: 0.8rem;
     }
@@ -29,5 +30,5 @@
 
 /* ========== Media Queries (SMALL DEVICES): ========== */
 @media screen and (max-width: 600px) {
-    
+
 }

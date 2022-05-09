@@ -5,6 +5,14 @@
     margin-left: 1.2rem;
 }
 
+.nav__item {
+    opacity: 50%;
+}
+
+.nav__item.active{
+    opacity: 100%;
+}
+
 /* ========== Media Queries (MEDIUM DEVICES): ========== */
 @media screen and (max-width: 1024px) {
     .leftNav{
