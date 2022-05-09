@@ -12,6 +12,8 @@
     transition: var(--transition);
     cursor: pointer;
 }
+
+
 .NavOption__icon{
     display: inline-block;
     transform: scale(1.4);
