@@ -33,6 +33,7 @@ code {
   --color-shadow: rgba(191, 191, 191, 0.8) 0px 8px 24px;
   --color-background-content: #387fb5ba;
   --color-background-gray:#EDEDED;
+  --color-gray-text: rgb(137, 137, 137);
 
   --container-width-lg: 75%;
   --container-width-md: 86%;

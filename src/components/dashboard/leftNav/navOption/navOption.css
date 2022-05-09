@@ -5,17 +5,17 @@
     padding: 1.2rem 2rem;
     font-size: 1.8rem;
     font-weight: 700;
-    color: var(--color-white);
-    background-color: var(--color-main);
+    color: var(--color-gray-text);
+    background-color: var( --color-background-gray);
     border-radius: 0.6rem;
     border: 1px solid transparent;
     transition: var(--transition);
     cursor: pointer;
-    opacity: 70%;
 }
 
 .NavOption.active{
-    opacity: 100%;
+    background-color: var(--color-main);
+    color: var(--color-white);
 }
 
 
