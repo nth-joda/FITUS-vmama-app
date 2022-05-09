@@ -11,6 +11,11 @@
     border: 1px solid transparent;
     transition: var(--transition);
     cursor: pointer;
+    opacity: 70%;
+}
+
+.NavOption.active{
+    opacity: 100%;
 }
 
 

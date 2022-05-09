@@ -4,7 +4,7 @@ import "./navOption.css"
 
 const NavOption = (props) => {
     return (
-        <div className="NavOption">
+        <div className={"NavOption "+props.isActive}>
             <div  className="NavOption__icon">
                 <DiscountIcon />
             </div>
