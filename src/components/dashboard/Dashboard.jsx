@@ -10,7 +10,7 @@ const Dashboard = () => {
   
   return (
     <div>
-      <DashboardHeader/>
+      <DashboardHeader />
       <div className="dashboard_content">
         <LeftNav className="dashboard__leftNav" changeContent={(loc) => setLocation(loc)}  />
         <div className="dashboard__container">
