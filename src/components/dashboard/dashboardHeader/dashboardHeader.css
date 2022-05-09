@@ -30,6 +30,7 @@
     height: 4rem;
     margin: auto;
     line-height: 4rem;
+    background-color: transparent;
     color: var(--color-main);
 }
 
