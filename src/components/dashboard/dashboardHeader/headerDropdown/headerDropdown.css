@@ -67,7 +67,7 @@
 
 
 /* ========== Media Queries (MEDIUM DEVICES): ========== */
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1800px) {
     .headerDropdown{
         z-index: 999;
         width: 14%;
@@ -88,7 +88,7 @@
 }
 
 /* ========== Media Queries (SMALL DEVICES): ========== */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 720px) {
     .headerDropdown{
         width: 60%;
         padding: 0.7rem 0;

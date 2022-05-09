@@ -13,7 +13,7 @@
 
 
 /* ========== Media Queries (MEDIUM DEVICES): ========== */
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1800px) {
     .searcher__form{
         grid-template-columns: 85% 14%;
         gap: 0.3rem;
@@ -22,7 +22,7 @@
 }
 
 /* ========== Media Queries (SMALL DEVICES): ========== */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 720px) {
     .searcher{
         padding: 0.2rem;
     }

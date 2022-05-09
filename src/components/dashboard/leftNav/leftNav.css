@@ -6,7 +6,7 @@
 }
 
 /* ========== Media Queries (MEDIUM DEVICES): ========== */
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1800px) {
     .leftNav{
         display: grid;
         gap: 0.7rem;
@@ -18,7 +18,7 @@
 }
 
 /* ========== Media Queries (SMALL DEVICES): ========== */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 720px) {
     .leftNav{
         margin: 0.5rem;
     }

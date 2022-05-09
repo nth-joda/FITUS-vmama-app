@@ -13,7 +13,7 @@
 
 
 /* ========== Media Queries (MEDIUM DEVICES): ========== */
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1800px) {
     .vouchers__header{
         grid-template-columns: 65% 32%;
         gap: 0.5rem;

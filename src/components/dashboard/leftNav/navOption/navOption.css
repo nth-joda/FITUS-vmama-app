@@ -35,7 +35,7 @@
 }
 
 /* ========== Media Queries (MEDIUM DEVICES): ========== */
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1800px) {
     .NavOption{
         display: block;
         padding: 0.9rem;
@@ -50,7 +50,7 @@
 }
 
 /* ========== Media Queries (SMALL DEVICES): ========== */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 720px) {
     .NavOption{
         gap: 0.7rem;
         padding: 0.5rem;
