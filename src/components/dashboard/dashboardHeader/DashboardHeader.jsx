@@ -7,17 +7,17 @@ const clickOutsideRef = (content_ref, toggle_ref) => {
   document.addEventListener("mousedown", (e) => {
     // user clicks toggler
     if (toggle_ref.current && toggle_ref.current.contains(e.target)) {
-      // content_ref.current.classList.toggle("show");
-      const dropdown_el = document.getElementById("dashboardHeader__dropdown");
-      dropdown_el.classList.toggle("show");
-      console.log("show dropdown");
+      content_ref.current.classList.toggle("show");
+      // const dropdown_el = document.getElementById("dashboardHeader__dropdown");
+      // dropdown_el.classList.toggle("show");
+      // console.log("show dropdown: ", dropdown_el.classList);
     } else {
       // user clicks outside toggle and content
       if (content_ref.current && !content_ref.current.contains(e.target)) {
-        // content_ref.current.classList.remove("show");
-        const dropdown_el_hide = document.getElementById("dashboardHeader__dropdown");
-        dropdown_el_hide.classList.remove("show");
-        console.log("hide dd");
+        content_ref.current.classList.remove("show");
+        // const dropdown_el_hide = document.getElementById("dashboardHeader__dropdown");
+        // dropdown_el_hide.classList.remove("show");
+        // console.log("hide dd: ", dropdown_el_hide.classList);
       }
     }
   });
@@ -33,11 +33,11 @@ const DashboardHeader = () => {
         <div className="dashboardHeader__logo">
             VMAMA
         </div>
-        <div  className="dashboardHeader__menu">
-          <div ref={dropdown_toggle_el} className="dashboardHeader__menu-profile">
+        <div className="dashboardHeader__menu">
+          <button ref={dropdown_toggle_el} className="dashboardHeader__menu-profile">
               <PersonIcon className='profile-avt'></PersonIcon>
               <div className="profile-name">Nguyen Van A</div>
-          </div>
+          </button>
           <div ref={dropdown_content_el} id="dashboardHeader__dropdown">
             <HeaderDropdown></HeaderDropdown>
           </div>
