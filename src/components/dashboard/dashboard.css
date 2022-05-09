@@ -15,7 +15,7 @@
 }
 
 /* ========== Media Queries (MEDIUM DEVICES): ========== */
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1800px) {
     .dashboard_content{
         display: block;
         margin-top: 1rem;
@@ -23,7 +23,7 @@
 }
 
 /* ========== Media Queries (SMALL DEVICES): ========== */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 720px) {
     .dashboard_content{
         margin-top: 0.7rem;
     }
