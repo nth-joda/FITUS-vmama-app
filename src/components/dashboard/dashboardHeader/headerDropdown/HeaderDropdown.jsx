@@ -13,13 +13,13 @@ const HeaderDropdown = () => {
             <li className="dropdown-item">
                 <a href="#">
                   <SettingsIcon className="dropdown-icon" />
-                  Cài đặt
+                  <p>Cài đặt</p>
                 </a>
             </li>
             <li className="dropdown-item logout">
                 <a href="#">
                   <LogoutIcon className="dropdown-icon" />
-                  Đăng xuất
+                  <p>Đăng xuất</p>
                 </a>
             </li>
         </ul>
