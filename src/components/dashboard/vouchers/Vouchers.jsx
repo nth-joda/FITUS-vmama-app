@@ -5,9 +5,9 @@ import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
 import Checkbox from '@mui/material/Checkbox';
 
-import vList from "../../../assets/vData.json";
-import Searcher from "./searcher/Searcher";
-import Updater from "./updater/Updater";
+import vList from "../../../assets/vouchers.json";
+import Searcher from "../../utils/searcher/Searcher";
+import Updater from "../../utils/updater/Updater";
 import Table from "../../utils/table/Table";
 const voucherTableHead = [
   "",
@@ -31,8 +31,8 @@ const renderBody = (item, index) => (
       }
     />
     </td>
-    <td>{item.vName}</td>
-    <td>{item.bName}</td>
+    <td>{item.voucher_name}</td>
+    <td>{item.brand_name}</td>
     <td>{item.left}</td>
     <td>{item.used}</td>
     <td className="cta-edit">
