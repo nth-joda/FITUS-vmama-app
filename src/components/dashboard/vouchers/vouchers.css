@@ -21,7 +21,7 @@
 }
 
 /* ========== Media Queries (SMALL DEVICES): ========== */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 720px) {
     .vouchers__header{
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr;
