@@ -18,7 +18,7 @@ const voucherTableHead = [
   "Chỉnh sửa",
 ];
 
-const renderHead = (item, index) => <th key={index}>{item}</th>;
+const renderHead = (item, index) => <th className={index === 3 || index === 4 ? "centering" : ""} key={index}>{item}</th>;
 
 const renderBody = (item, index) => (
   <tr key={index}>
@@ -33,8 +33,8 @@ const renderBody = (item, index) => (
     </td>
     <td>{item.voucher_name}</td>
     <td>{item.brand_name}</td>
-    <td>{item.left}</td>
-    <td>{item.used}</td>
+    <td className={item.left > 0 ? "centering safe-txt" : "centering danger-txt"}>{item.left}</td>
+    <td className="danger-txt centering">{item.used}</td>
     <td className="cta-edit">
       <IconButton aria-label="edit" size="large" sx={{color: "var(--color-main)", transform:"scale(1.1)"}}>
         <EditIcon />

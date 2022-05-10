@@ -34,6 +34,8 @@ code {
   --color-background-content: #387fb5ba;
   --color-background-gray:#EDEDED;
   --color-gray-text: rgb(137, 137, 137);
+  --color-safe-text: rgb(41, 106, 39);
+  --color-danger-text: rgb(204,67,74);
 
   --container-width-lg: 75%;
   --container-width-md: 86%;

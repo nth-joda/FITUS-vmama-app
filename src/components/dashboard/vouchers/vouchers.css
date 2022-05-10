@@ -5,6 +5,17 @@
     margin-bottom: 2rem;
 }
 
+.centering{
+    text-align: center;
+}
+/* .safe-txt{
+    color: var(--color-safe-text);
+}
+
+.danger-txt{
+    color: var(--color-danger-txt);
+} */
+
 /* .cta-edit{
     display: flex;
     align-items: center;
