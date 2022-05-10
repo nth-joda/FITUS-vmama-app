@@ -8,9 +8,9 @@
 }
 
 #authHeader__appname{
-    font-size: 2.5rem;
-    font-weight: 600;
-    color: var(--color-main);
+    display: block;
+    margin: 3rem auto 0.8rem;
+    max-width: 8rem;
 }
 
 /* ========== Media Queries (MEDIUM DEVICES): ========== */
@@ -19,12 +19,13 @@
         margin-top: 2rem;
     }
 
-    #authHeader__logo{
+    /* #authHeader__logo{
         max-width: 7rem;
-    }
+    } */
 
     #authHeader__appname{
-        font-size: 2rem;
+        margin: 3rem auto;
+        max-width: 7rem;
     }
 }
 
@@ -33,12 +34,13 @@
         margin-top: 1rem;
     }
 
-    #authHeader__logo{
+    /* #authHeader__logo{
         max-width: 7rem;
-    }
+    } */
 
     #authHeader__appname{
-        font-size: 1.7em;
+        margin: 1.2rem auto;
+        max-width: 6rem;
     }
 }
 
