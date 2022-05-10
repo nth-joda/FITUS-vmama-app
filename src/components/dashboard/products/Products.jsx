@@ -1,5 +1,5 @@
 import React from 'react'
-import "./vouchers.css";
+import "./products.css";
 
 import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
@@ -13,8 +13,7 @@ const voucherTableHead = [
   "",
   "Tên voucher",
   "Tên brand",
-  "Còn lại",
-  "Đã đổi",
+  "Giá tiền",
   "Chỉnh sửa",
 ];
 
@@ -22,7 +21,7 @@ const renderHead = (item, index) => <th key={index}>{item}</th>;
 
 const renderBody = (item, index) => (
   <tr key={index}>
-     <td>
+    <td>
     <Checkbox
       sx = {{ 
         '& .MuiSvgIcon-root': { fontSize: 28 },
@@ -34,7 +33,6 @@ const renderBody = (item, index) => (
     <td>{item.vName}</td>
     <td>{item.bName}</td>
     <td>{item.left}</td>
-    <td>{item.used}</td>
     <td className="cta-edit">
       <IconButton aria-label="edit" size="large" sx={{color: "var(--color-main)", transform:"scale(1.1)"}}>
         <EditIcon />
@@ -44,7 +42,7 @@ const renderBody = (item, index) => (
 );
 
 
-const Vouchers = () => {
+const Products = () => {
   return (
     <div className="vouchers">
         <div className="vouchers__header">
@@ -63,4 +61,4 @@ const Vouchers = () => {
   )
 }
 
-export default Vouchers
+export default Products

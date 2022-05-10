@@ -1,49 +1,54 @@
-import React, {useRef} from 'react'
+import React from 'react'
 import "./dashboardHeader.css"
 import HeaderDropdown from './headerDropdown/HeaderDropdown'
 import PersonIcon from '@mui/icons-material/Person';
+import Popover from '@mui/material/Popover';
 
-const clickOutsideRef = (content_ref, toggle_ref) => {
-  document.addEventListener("mousedown", (e) => {
-    // user clicks toggler
-    if (toggle_ref.current && toggle_ref.current.contains(e.target)) {
-      content_ref.current.classList.toggle("show");
-      // const dropdown_el = document.getElementById("dashboardHeader__dropdown");
-      // dropdown_el.classList.toggle("show");
-      // console.log("show dropdown: ", dropdown_el.classList);
-    } else {
-      // user clicks outside toggle and content
-      if (content_ref.current && !content_ref.current.contains(e.target)) {
-        content_ref.current.classList.remove("show");
-        // const dropdown_el_hide = document.getElementById("dashboardHeader__dropdown");
-        // dropdown_el_hide.classList.remove("show");
-        // console.log("hide dd: ", dropdown_el_hide.classList);
-      }
-    }
-  });
-};
+import Logo from "../../../assets/VMAMA logo/VMAMA Text only.png"
 
 const DashboardHeader = () => {
-  const dropdown_toggle_el = useRef(null);
-  const dropdown_content_el = useRef(null);
-  clickOutsideRef(dropdown_content_el, dropdown_toggle_el);
+  // const dropdown_toggle_el = useRef(null);
+  // const dropdown_content_el = useRef(null);
+  // clickOutsideRef(dropdown_content_el, dropdown_toggle_el);
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popover' : undefined;
 
   return (
     <div className="dashboardHeader">
         <div className="dashboardHeader__logo">
-            VMAMA
+          <img src={Logo} alt="logo" className="dashboardHeader__logo-img" />
         </div>
+        
         <div className="dashboardHeader__menu">
-          <button ref={dropdown_toggle_el} className="dashboardHeader__menu-profile">
-              <PersonIcon className='profile-avt'></PersonIcon>
-              <div className="profile-name">Nguyen Van A</div>
-          </button>
-          <div ref={dropdown_content_el} id="dashboardHeader__dropdown">
-            <HeaderDropdown></HeaderDropdown>
+          <div className="dashboardHeader__menu-profile" aria-describedby={id} variant="contained" onClick={handleClick}>
+            <PersonIcon className='profile-avt'></PersonIcon>
+            <div className="profile-name">Nguyen Van A</div>
           </div>
+          <Popover
+            id={id}
+            open={open}
+            anchorEl={anchorEl}
+            onClose={handleClose}
+            anchorOrigin={{
+              vertical: 'bottom',
+              horizontal: 'right',
+            }}
+          >
+            <p className="widen-area"></p>
+            <HeaderDropdown></HeaderDropdown>
+          </Popover>
         </div>
-        
-        
     </div>
   )
 }
