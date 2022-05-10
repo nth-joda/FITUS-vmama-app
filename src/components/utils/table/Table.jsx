@@ -30,6 +30,16 @@ const selectPage = (page) => {
     setCurrPage(page);
 };
 
+const onNext = () => {
+    let prev = currPage < range.length - 1 ? currPage + 1 : range.length - 1; 
+    setCurrPage(prev);
+}
+
+const onPrev = () => {
+    let prev = currPage > 0 ? currPage - 1 : currPage; 
+    setCurrPage(prev);
+}
+
 return (
     <div>
         <div className="table-wrapper">
@@ -53,19 +63,20 @@ return (
         
         {pages > 1 ? (
             <div className="table__pagination">
-            {range.map((item, index) => (
-                <div
-                className={`table__pagination-item ${
-                    currPage === index ? "active" : ""
-                }`}
-                onClick={() => {
-                    selectPage(index);
-                }}
-                key={index}
-                >
-                {item + 1}
-                </div>
-            ))}
+                <div className="table__pagination-btn table__pagination-item" onClick={onPrev}>{"<"}</div>
+                {range.map((item, index) => (
+                    <div
+                        className={`table__pagination-item ${
+                            currPage === index ? "active" : ""
+                        }`}
+                        onClick={() => {
+                            selectPage(index);
+                        }}
+                        key={index}>
+                        {item + 1}
+                    </div>
+                ))}
+                <div className="table__pagination-btn table__pagination-item" onClick={onNext}>{">"}</div>
             </div>
         ) : null}
     </div>
