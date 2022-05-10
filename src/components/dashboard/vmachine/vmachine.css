@@ -5,12 +5,9 @@
     margin-bottom: 2rem;
 }
 
-/* .cta-edit{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-} */
-
+.td-note-sm{
+    font-size: 0.9rem;
+}
 
 /* ========== Media Queries (MEDIUM DEVICES): ========== */
 @media screen and (max-width: 1800px) {

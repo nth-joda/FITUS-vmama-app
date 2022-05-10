@@ -5,11 +5,11 @@ import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
 import Checkbox from '@mui/material/Checkbox';
 
-import vList from "../../../assets/vData.json";
-import Searcher from "./searcher/Searcher";
-import Updater from "./updater/Updater";
+import products from "../../../assets/products.json";
+import Searcher from "../../utils/searcher/Searcher";
+import Updater from "../../utils/updater/Updater";
 import Table from "../../utils/table/Table";
-const voucherTableHead = [
+const productTableHead = [
   "",
   "Tên voucher",
   "Tên brand",
@@ -30,9 +30,9 @@ const renderBody = (item, index) => (
       }
     />
     </td>
-    <td>{item.vName}</td>
-    <td>{item.bName}</td>
-    <td>{item.left}</td>
+    <td>{item.voucher_name}</td>
+    <td>{item.brand_name}</td>
+    <td>{item.cost}</td>
     <td className="cta-edit">
       <IconButton aria-label="edit" size="large" sx={{color: "var(--color-main)", transform:"scale(1.1)"}}>
         <EditIcon />
@@ -52,9 +52,9 @@ const Products = () => {
         <div className="vouchers__content">
           <Table
               limit="10"
-              headData={voucherTableHead}
+              headData={productTableHead}
               renderHeader={(item, index) => renderHead(item, index)}
-              bodyData={vList}
+              bodyData={products}
               renderBody={(item, index) => renderBody(item, index)}/>
         </div>
     </div>
