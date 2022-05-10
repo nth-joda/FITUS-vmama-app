@@ -31,13 +31,24 @@ const selectPage = (page) => {
 };
 
 const onNext = () => {
-    let prev = currPage < range.length - 1 ? currPage + 1 : range.length - 1; 
-    setCurrPage(prev);
+    let page = currPage < range.length - 1 ? currPage + 1 : range.length-1; 
+    console.log(page);
+    const start = Number(props.limit) * page;
+    const end = start + Number(props.limit);
+
+    setDataShown(props.bodyData.slice(start, end));
+    setCurrPage(page);
 }
 
 const onPrev = () => {
-    let prev = currPage > 0 ? currPage - 1 : currPage; 
-    setCurrPage(prev);
+    let page = currPage > 0 ? currPage - 1 : currPage; 
+    console.log(page);
+
+    const start = Number(props.limit) * page;
+    const end = start + Number(props.limit);
+
+    setDataShown(props.bodyData.slice(start, end));
+    setCurrPage(page);
 }
 
 return (
