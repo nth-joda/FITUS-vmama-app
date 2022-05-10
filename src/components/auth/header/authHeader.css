@@ -13,7 +13,7 @@
     max-width: 8rem;
 }
 
-/* ========== Media Queries (MEDIUM DEVICES): ========== */
+/* ========== Media Queries (L - MEDIUM DEVICES): ========== */
 @media screen and (max-width: 1800px) {
     #authHeader{
         margin-top: 2rem;
@@ -29,6 +29,7 @@
     }
 }
 
+/* ========== Media Queries (MEDIUM DEVICES): ========== */
 @media screen and (max-width: 1540px) {
     #authHeader{
         margin-top: 1rem;
