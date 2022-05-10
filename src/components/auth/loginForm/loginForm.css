@@ -104,17 +104,31 @@
     .loginForm__fields{
         width: var(--container-width-md);
     }
+
+
+    
 }
 
 @media screen and (max-width: 1550px) {
     .loginForm{
         width: calc(var(--container-width-md) - 50%);
-        margin-top: 3.5rem;
+        margin-top: 5rem;
     }
 
-    .loginForm__fields{
-        width: var(--container-width-md);
+    .loginForm__help{
+        margin: 0.7rem auto;
     }
+
+    .loginForm__userInput-field input{
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    .loginForm__submit{
+        margin: 0 auto;
+        font-size: 1rem;
+    }
+    
 }
 
 /* ========== Media Queries (SMALL DEVICES): ========== */
