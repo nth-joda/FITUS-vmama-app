@@ -46,7 +46,7 @@ const Products = () => {
   return (
     <div className="vouchers">
         <div className="vouchers__header">
-            <Searcher />
+            <Searcher label="Nhập tên sản phẩm ..." />
             <Updater />
         </div>
         <div className="vouchers__content">

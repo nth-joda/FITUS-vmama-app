@@ -42,7 +42,7 @@ const DashboardHeader = () => {
             onClose={handleClose}
             anchorOrigin={{
               vertical: 'bottom',
-              horizontal: 'right',
+              horizontal: 'left',
             }}
           >
             <p className="widen-area"></p>

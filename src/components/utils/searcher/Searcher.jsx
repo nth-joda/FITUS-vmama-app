@@ -4,14 +4,14 @@ import SearchIcon from '@mui/icons-material/Search';
 
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-const Searcher = () => {
+const Searcher = (props) => {
   return (
     <div className="searcher">
         <form className="searcher__form">
             <TextField
                 className="searcher__form-input" 
                 size="small"
-                label="Nhập tên voucher..." 
+                label={props.label ? props.label : "Nhập từ khóa ..." }
                 variant="filled" />
             <Button className="searcher__button" type="submit" variant="outlined">
                 <SearchIcon className="searcher__icon" />
