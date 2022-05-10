@@ -18,6 +18,11 @@
 .dropdown-item a{
     display: grid;
     grid-template-columns: 40% 60%;
+    transition: var(--transition);
+}
+
+.dropdown-item a p {
+    align-self: center;
 }
 
 .dropdown-item:hover{

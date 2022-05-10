@@ -1,6 +1,6 @@
 .widen-area{
     font-size: 0;
-    width: 15rem;
+    width: 15.5rem;
 }
 
 
@@ -38,6 +38,10 @@
     color: var(--color-main);
 }
 
+.dashboardHeader__menu-profile:hover .profile-name{
+    letter-spacing: 0.03rem;
+    opacity:1;
+}
 .profile-avt{
     display: inline-block;
     margin: auto 0.7rem;
@@ -51,6 +55,8 @@
     font-size: 1.3rem;
     font-weight: 700;
     margin-right: 1rem;
+    transition: var(--transition);
+    opacity: 0.9;
 }
 
 .profile-dropdown{

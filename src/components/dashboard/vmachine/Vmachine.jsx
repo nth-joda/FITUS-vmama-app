@@ -45,7 +45,7 @@ const Vmachine = () => {
   return (
     <div className="vouchers">
         <div className="vouchers__header">
-            <Searcher />
+            <Searcher label="Nhập tên VMachine ..." />
             <Updater />
         </div>
         <div className="vouchers__content">
