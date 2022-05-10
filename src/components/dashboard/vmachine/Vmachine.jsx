@@ -1,5 +1,5 @@
 import React from 'react'
-import "./vouchers.css";
+import "./vmachine.css";
 
 import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
@@ -11,40 +11,21 @@ import Updater from "./updater/Updater";
 import Table from "../../utils/table/Table";
 const voucherTableHead = [
   "",
-  "Tên voucher",
-  "Tên brand",
-  "Còn lại",
-  "Đã đổi",
-  "Chỉnh sửa",
 ];
 
-const renderHead = (item, index) => <th key={index}>{item}</th>;
+
 
 const renderBody = (item, index) => (
   <tr key={index}>
-     <td>
-    <Checkbox
-      sx = {{ 
-        '& .MuiSvgIcon-root': { fontSize: 28 },
-        color: '#fff',
-        '&.Mui-checked': {color: '#fff' }}
-      }
-    />
-    </td>
-    <td>{item.vName}</td>
-    <td>{item.bName}</td>
-    <td>{item.left}</td>
-    <td>{item.used}</td>
-    <td className="cta-edit">
-      <IconButton aria-label="edit" size="large" sx={{color: "var(--color-main)", transform:"scale(1.1)"}}>
-        <EditIcon />
-      </IconButton>
-    </td>
+   
+    <td>{item.vAeon}</td>
+  
+  
   </tr>
 );
 
 
-const Vouchers = () => {
+const Vmachine = () => {
   return (
     <div className="vouchers">
         <div className="vouchers__header">
@@ -54,8 +35,7 @@ const Vouchers = () => {
         <div className="vouchers__content">
           <Table
               limit="10"
-              headData={voucherTableHead}
-              renderHeader={(item, index) => renderHead(item, index)}
+     
               bodyData={vList}
               renderBody={(item, index) => renderBody(item, index)}/>
         </div>
@@ -63,4 +43,4 @@ const Vouchers = () => {
   )
 }
 
-export default Vouchers
+export default Vmachine

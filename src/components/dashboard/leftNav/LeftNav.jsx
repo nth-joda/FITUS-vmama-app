@@ -15,13 +15,14 @@ const LeftNav = (props) => {
             <div onClick={() => setChange("vouchers")}>
                 <NavOption isActive={beingActive === "vouchers" ? "active" : "" } key="vouchers" icon={"voucher"} dpName="Vouchers" />
             </div>
-            <div onClick={() =>  setChange("policy")}>
-                <NavOption isActive={beingActive === "policy" ? "active" : "" } key="policy" icon={"policy"} dpName="Policy"  />
-            </div>
+         
             <div onClick={() =>  setChange("product")}>
                 <NavOption isActive={beingActive === "product" ? "active" : "" }  key="product" icon={"product"} dpName="Product" />
             </div>
             
+            <div onClick={() =>  setChange("vmachine")}>
+                <NavOption isActive={beingActive === "vmachine" ? "active" : "" } key="vmachine" icon={"vmachine"} dpName="Vmachine"  />
+            </div>
         </div>
     )
 }
