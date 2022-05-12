@@ -35,7 +35,7 @@ const LoginForm = () => {
                     <Checkbox name="rememberAcc" id="rememberAcc" />
                     Nhớ tài khoản</label>
                 <a href="#" className="forgotPassword" > 
-                <FormForgotPassword/>
+                    <FormForgotPassword/>
                 </a>
             </div>
             <div className="loginForm__cta">

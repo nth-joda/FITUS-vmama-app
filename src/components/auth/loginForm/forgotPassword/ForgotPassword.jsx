@@ -55,7 +55,7 @@ export default function FormForgotPassword() {
 
 
   return (
-    <div>
+    <div className="forgotPassword">
       <Button  variant="text" onClick={handleClickOpen}>
       Quên mật khẩu?
       </Button>
