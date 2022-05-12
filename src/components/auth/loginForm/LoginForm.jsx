@@ -2,6 +2,8 @@ import React from 'react'
 import Checkbox from '@mui/material/Checkbox';
 
 import "./loginForm.css"
+import "./forgotPassword/ForgotPassword"
+import FormForgotPassword from './forgotPassword/ForgotPassword';
 
 const label_NhoMK = { inputProps: { 'aria-label': 'Nhớ Mật Khẩu' } };
 
@@ -32,7 +34,9 @@ const LoginForm = () => {
                 <label>
                     <Checkbox name="rememberAcc" id="rememberAcc" />
                     Nhớ tài khoản</label>
-                <a href="#" className="forgotPassword">Quên mật khẩu?</a>
+                <a href="#" className="forgotPassword" > 
+                <FormForgotPassword/>
+                </a>
             </div>
             <div className="loginForm__cta">
                 <button className="btn btn-primary loginForm__submit" onClick={formSubmitHandler}>Đăng nhập</button>
