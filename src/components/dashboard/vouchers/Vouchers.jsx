@@ -24,41 +24,8 @@ function getWindowDimensions() {
 };
 
 
-
-// const ChildModal = () => {
-//   const [open, setOpen] = React.useState(false);
-//   const handleOpen = () => {
-//     setOpen(true);
-//   };
-//   const handleClose = () => {
-//     setOpen(false);
-//   };
-
-//   return (
-//     <React.Fragment>
-//       <Button onClick={handleOpen}>Open Child Modal</Button>
-//       <Modal
-//         hideBackdrop
-//         open={open}
-//         onClose={handleClose}
-//         aria-labelledby="child-modal-title"
-//         aria-describedby="child-modal-description"
-//       >
-//         <Box sx={{ ...modal_Style, width: 200 }}>
-//           <h2 id="child-modal-title">Xác nhận thêm voucher</h2>
-//           <p id="child-modal-description">
-//             Thông tin voucher sẽ thêm ngay sau xác nhận: Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-//           </p>
-//           <Button onClick={handleClose}>Quay về</Button>
-//           <Button onClick={handleClose}>Xác nhận thêm</Button>
-//         </Box>
-//       </Modal>
-//     </React.Fragment>
-//   );
-// }
-
 const voucherTableHead = [
-  "",
+  "Chọn",
   "Tên voucher",
   "Tên brand",
   "Còn lại",
@@ -66,37 +33,50 @@ const voucherTableHead = [
   "Chỉnh sửa",
 ];
 
-const renderHead = (item, index) => <th className={index === 3 || index === 4 ? "centering" : ""} key={index}>{item}</th>;
 
-const renderBody = (item, index) => (
-  <tr key={index}>
-     <td>
-    <Checkbox
-      sx = {{ 
-        '& .MuiSvgIcon-root': { fontSize: 28 },
-        color: '#fff',
-        '&.Mui-checked': {color: '#fff' }}
-      }
-    />
-    </td>
-    <td>{item.voucher_name}</td>
-    <td>{item.brand_name}</td>
-    <td className={item.left > 0 ? "centering safe-txt" : "centering danger-txt"}>{item.left}</td>
-    <td className="danger-txt centering">{item.used}</td>
-    <td className="cta-edit">
-      <IconButton aria-label="edit" size="large" sx={{color: "var(--color-main)", transform:"scale(1.1)"}}>
-        <EditIcon />
-      </IconButton>
-    </td>
-  </tr>
-);
 
 
 const Vouchers = () => {
-
+  
   const [open, setOpen] = React.useState(false);
   const [winSize, setWinSize] = React.useState(getWindowDimensions());
-  const [ winPer, setWinPer] = React.useState("30%");
+  const [winPer, setWinPer] = React.useState("30%");
+  const [checkedList, setCheckedList] = React.useState([]);
+  const [currentPage, setCurrentPage] = React.useState(0);
+
+  const renderHead = (item, index) => {
+    if(item === "Chọn" && checkedList.length > 0) return  (<th key={index}>{item}</th>) ;
+    <th className={index === 3 || index === 4 ? "centering" : ""} key={index}>{item}</th>
+  };
+
+  const renderBody = (item, index, curPage, limit) => {
+    setCurrentPage(curPage);
+    return (<tr key={index}>
+      <td>
+        <Checkbox
+          sx = {{ 
+            '& .MuiSvgIcon-root': { fontSize: 28 },
+            color: '#fff',
+            '&.Mui-checked': {color: '#fff' }}}
+          checked={ checkedList.filter(x => x === curPage*limit + index).length >0 ? true : false }
+          onChange={(e) => {
+            const checkedID = (curPage*limit + index);
+            checkedList.filter(x => x === checkedID).length <= 0 ? setCheckedList([...checkedList, checkedID]) : setCheckedList([...checkedList.filter(x => x !== checkedID)]);
+            }
+          }
+        />  
+      </td>
+      <td>{item.voucher_name}</td>
+      <td>{item.brand_name}</td>
+      <td className={item.left > 0 ? "centering safe-txt" : "centering danger-txt"}>{item.left}</td>
+      <td className="danger-txt centering">{item.used}</td>
+      <td className="cta-edit">
+        <IconButton aria-label="edit" size="large" sx={{color: "var(--color-main)", transform:"scale(1.1)"}}>
+          <EditIcon />
+        </IconButton>
+      </td>
+    </tr>)
+  };
 
   useEffect(() =>{
     if(winSize.width < 400){
@@ -109,10 +89,17 @@ const Vouchers = () => {
     else setWinPer("50%");
   }, [winSize.width]);
 
+  useEffect(() =>{setCheckedList([])}, [currentPage])
+
+
   const handleOpen = () => {
     setOpen(true);
 
   };
+
+  const handleDelete = () => {
+    console.log("check list:", checkedList);
+  }
   const handleClose = () => setOpen(false);
 
   const modal_Style = {
@@ -132,7 +119,7 @@ const Vouchers = () => {
     <div className="vouchers">
         <div className="vouchers__header">
             <Searcher label="Nhập tên voucher ..." />
-            <Updater catchAdd={handleOpen}/>
+            <Updater catchAdd={handleOpen} catchDelete={handleDelete}/>
         </div>
         <div className="vouchers__content">
           <Table
@@ -140,7 +127,7 @@ const Vouchers = () => {
               headData={voucherTableHead}
               renderHeader={(item, index) => renderHead(item, index)}
               bodyData={vList}
-              renderBody={(item, index) => renderBody(item, index)}/>
+              renderBody={(item, index, curPage, limit) => renderBody(item, index, curPage, limit)}/>
         </div>
 
         <Modal
