@@ -19,13 +19,14 @@
         grid-template-columns: repeat(3, max-content);
         justify-content: center;
         align-content: center;
+        gap: 1rem;
+        height: 85%;
     }
     .dashboard-button{
         align-self: center;
-        width: 5.5rem;
-        height: 100%;
-        direction: ltr;
-        padding: 0.8rem;
+        width: min-content;
+        height: 75%;
+        padding: 0.2rem;
     }
     
 }

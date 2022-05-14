@@ -44,12 +44,12 @@ const renderBody = (item, index) => (
 
 const Products = () => {
   return (
-    <div className="vouchers">
-        <div className="vouchers__header">
+    <div className="products">
+        <div className="products__header">
             <Searcher label="Nhập tên sản phẩm ..." />
             <Updater />
         </div>
-        <div className="vouchers__content">
+        <div className="products__content">
           <Table
               limit="10"
               headData={productTableHead}

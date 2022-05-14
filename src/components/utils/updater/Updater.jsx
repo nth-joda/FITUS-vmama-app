@@ -9,7 +9,7 @@ import RotateLeftIcon from '@mui/icons-material/RotateLeft';
 const Updater = (props) => {
   return (
     <div className="updater">
-        <Button className="dashboard-button btn-remove" disabled={props.isDelDisabled} onClick={() => props.catchDelete()} variant="contained" color="error" endIcon={<DeleteIcon />}>
+        <Button className="dashboard-button btn-remove" size="small" disabled={props.isDelDisabled} onClick={() => props.catchDelete()} variant="contained" color="error" endIcon={<DeleteIcon />}>
             Xóa
         </Button>
 
