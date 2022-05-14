@@ -118,8 +118,8 @@ const Vouchers = () => {
       setWinPer("90%");
     }
 
-    else if(winSize.width < 800 ){
-      setWinPer("60%");
+    else if(winSize.width < 850 ){
+      setWinPer("80%");
     }
     else setWinPer("50%");
 
