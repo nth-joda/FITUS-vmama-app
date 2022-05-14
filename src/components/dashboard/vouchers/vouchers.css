@@ -121,7 +121,11 @@
 /* ========== Media Queries (MEDIUM DEVICES): ========== */
 @media screen and (max-width: 1800px) {
     .vouchers__header{
-        grid-template-columns: 50% 35%;
+        grid-template-columns: 50% 45%;
+    }
+
+    Searcher, Updater{
+        align-self: center;
     }
     .delete-cta{
         padding: 0.7rem;
