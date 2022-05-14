@@ -8,7 +8,7 @@ import Checkbox from '@mui/material/Checkbox';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import TextField from '@mui/material/TextField';
-import Grid from '@mui/material/Grid';
+import Button from '@mui/material/Button';
 
 import vList from "../../../assets/vouchers.json";
 import Searcher from "../../utils/searcher/Searcher";
@@ -33,34 +33,55 @@ const voucherTableHead = [
   "Chỉnh sửa",
 ];
 
+const voucherTableHeadDelete = [
+  "ID",
+  "Tên voucher",
+  "Tên brand",
+  "Còn lại",
+  "Đã đổi",
+];
+
+const renderBodyDelete = (item, index) => {
+  return (<tr key={index}>
+    <td>
+      {item.id}
+    </td>
+    <td>{item.voucher_name}</td>
+    <td>{item.brand_name}</td>
+    <td className={item.left > 0 ? "centering safe-txt" : "centering danger-txt"}>{item.left}</td>
+    <td className="danger-txt centering">{item.used}</td>
+  </tr>)
+};
+
 
 
 
 const Vouchers = () => {
   
-  const [open, setOpen] = React.useState(false);
+  const [openAdd, setOpenAdd] = React.useState(false);
+  const [openDelete, setOpenDelete] = React.useState(false);
   const [winSize, setWinSize] = React.useState(getWindowDimensions());
   const [winPer, setWinPer] = React.useState("30%");
   const [checkedList, setCheckedList] = React.useState([]);
   const [currentPage, setCurrentPage] = React.useState(0);
 
-  const renderHead = (item, index) => {
-    if(item === "Chọn" && checkedList.length > 0) return  (<th key={index}>{item}</th>) ;
-    <th className={index === 3 || index === 4 ? "centering" : ""} key={index}>{item}</th>
+  const renderHead = (item, index) => { 
+    if(item === "Chọn" && checkedList.length > 0) return  (<th className="white-txt chosen_num" key={index}>{"[ "+checkedList.length+" ]"}</th>)
+    else return (<th className={index === 3 || index === 4 ? "white-txt centering" : "white-txt"} key={index}>{item}</th>);
   };
 
   const renderBody = (item, index, curPage, limit) => {
     setCurrentPage(curPage);
-    return (<tr key={index}>
+  return (<tr className={checkedList.includes(curPage*limit + index + 1) ? "chosen" :""} key={index}>
       <td>
         <Checkbox
           sx = {{ 
             '& .MuiSvgIcon-root': { fontSize: 28 },
             color: '#fff',
             '&.Mui-checked': {color: '#fff' }}}
-          checked={ checkedList.filter(x => x === curPage*limit + index).length >0 ? true : false }
+          checked={ checkedList.filter(x => x === curPage*limit + index + 1).length >0 ? true : false }
           onChange={(e) => {
-            const checkedID = (curPage*limit + index);
+            const checkedID = (curPage*limit + index +1);
             checkedList.filter(x => x === checkedID).length <= 0 ? setCheckedList([...checkedList, checkedID]) : setCheckedList([...checkedList.filter(x => x !== checkedID)]);
             }
           }
@@ -92,15 +113,16 @@ const Vouchers = () => {
   useEffect(() =>{setCheckedList([])}, [currentPage])
 
 
-  const handleOpen = () => {
-    setOpen(true);
+  const handleAdd = () => {
+    setOpenAdd(true);
 
   };
 
   const handleDelete = () => {
-    console.log("check list:", checkedList);
+    setOpenDelete(true);
   }
-  const handleClose = () => setOpen(false);
+  const handleCloseAdd = () => setOpenAdd(false);
+  const handleCloseDelete = () => setOpenDelete(false);
 
   const modal_Style = {
     position: 'absolute',
@@ -115,11 +137,18 @@ const Vouchers = () => {
     p: 4,
   };
 
+  const getSelectedList = () => {
+    let sList = [];
+    sList = vList.filter(x => checkedList.includes(x.id));
+    console.log(sList, checkedList)
+    return sList
+  }
+
   return (
     <div className="vouchers">
         <div className="vouchers__header">
             <Searcher label="Nhập tên voucher ..." />
-            <Updater catchAdd={handleOpen} catchDelete={handleDelete}/>
+            <Updater catchAdd={handleAdd} catchDelete={handleDelete}/>
         </div>
         <div className="vouchers__content">
           <Table
@@ -129,10 +158,10 @@ const Vouchers = () => {
               bodyData={vList}
               renderBody={(item, index, curPage, limit) => renderBody(item, index, curPage, limit)}/>
         </div>
-
+        {/* ADD FORM:  */}
         <Modal
-          open={open}
-          onClose={handleClose}
+          open={openAdd}
+          onClose={handleCloseAdd}
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
         >
@@ -171,6 +200,34 @@ const Vouchers = () => {
               </div>
               <button className="submit-add" >Thêm</button>
             </form>
+          </Box>
+          {/* <ChildModal />  */}
+        </Modal>
+
+        {/* DELETE FORM */}
+        <Modal
+          open={openDelete}
+          onClose={handleCloseDelete}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={modal_Style}>
+            <p className="modal__header">Xóa {checkedList.length} vouchers sau:</p>
+            <div className="vouchers__content">
+              <Table
+                  headData={voucherTableHeadDelete}
+                  renderHeader={(item, index) => renderHead(item, index)}
+                  bodyData={getSelectedList}
+                  renderBody={(item, index, curPage, limit) => renderBodyDelete(item, index, curPage, limit)}/>
+            </div>
+            <div className="delete-cta">
+              <Button className="btn btn-ondel btn-confirm" size="large" variant="contained" color="error">
+                Xác nhận xóa
+              </Button>
+              <Button className="btn btn-ondel btn-cancel" size="large" variant="contained">
+                Hủy bỏ thao tác
+              </Button>
+            </div>
           </Box>
           {/* <ChildModal />  */}
         </Modal>

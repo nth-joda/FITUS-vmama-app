@@ -8,6 +8,40 @@
 .centering{
     text-align: center;
 }
+
+.chosen_num{
+    padding-left: 1.5rem;
+}
+
+.white-txt{
+    color: var(--color-white);
+}
+
+.chosen{
+    background-color: rgba(255, 0, 0, 0.321);
+}
+
+.delete-cta{
+    margin-top: 2rem;
+    background: var(--color-main);
+    border: 1px solid transparent;
+    opacity: 0.9;
+    border-radius: 0 0 0.7rem 0.7rem;
+    padding: 0.2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    transition: var(--transition);
+}
+
+.delete-cta:hover{
+    opacity: 1;
+}
+
+.btn-ondel{
+    max-width: max-content;
+    align-self: center;
+    justify-self: center;
+}
 /* .safe-txt{
     color: var(--color-safe-text);
 }
@@ -33,7 +67,7 @@
     letter-spacing: 0.1rem;
     background-color: var(--color-main);
     border-radius: 0.7rem 0.7rem 0 0;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     opacity: 0.9;
     transition: var(--transition);
     cursor: default;
