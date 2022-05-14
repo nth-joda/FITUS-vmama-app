@@ -116,6 +116,9 @@
     font-weight: 500;
     align-self: center;
 }
+.MuiBox-root.css-1ejbb7y, .MuiBox-root.css-4vnzb8{
+    padding: 1rem;
+}
 
 
 /* ========== Media Queries (MEDIUM DEVICES): ========== */
