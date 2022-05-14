@@ -120,7 +120,14 @@ const Vouchers = () => {
   };
 
   const handleDelete = () => {
-    setOpenDelete(true);
+    if(checkedList.length > 0){
+      setOpenDelete(true);
+    }
+  }
+
+  const handleRefresh = () => {
+    setCheckedList([]);
+    setChosenEdit();
   }
 
   const handleCloseAdd = () => setOpenAdd(false);
@@ -151,7 +158,7 @@ const Vouchers = () => {
     <div className="vouchers">
         <div className="vouchers__header">
             <Searcher label="Nhập tên voucher ..." />
-            <Updater catchAdd={handleAdd} catchDelete={handleDelete}/>
+            <Updater catchAdd={handleAdd} catchDelete={handleDelete} catchRefresh={handleRefresh} isRefreshDisabled={checkedList.length < 1} isDelDisabled={checkedList.length < 1} />
         </div>
         <div className="vouchers__content">
           <Table
@@ -201,7 +208,14 @@ const Vouchers = () => {
                   variant="filled"
                 />
               </div>
-              <button className="submit-add" >Thêm</button>
+              <div className="delete-cta">
+              <Button className="btn btn-ondel btn-confirm" size="large" variant="contained" color="error">
+                Xác nhận Thêm
+              </Button>
+              <Button className="btn btn-ondel btn-cancel" size="large" variant="contained" onClick={handleCloseAdd}>
+                Hủy bỏ thao tác
+              </Button>
+            </div>
             </form>
           </Box>
           {/* <ChildModal />  */}
@@ -227,7 +241,7 @@ const Vouchers = () => {
               <Button className="btn btn-ondel btn-confirm" size="large" variant="contained" color="error">
                 Xác nhận xóa
               </Button>
-              <Button className="btn btn-ondel btn-cancel" size="large" variant="contained">
+              <Button className="btn btn-ondel btn-cancel" size="large" variant="contained" onClick={handleCloseDelete}>
                 Hủy bỏ thao tác
               </Button>
             </div>
@@ -283,7 +297,7 @@ const Vouchers = () => {
               <Button className="btn btn-ondel btn-confirm" size="large" variant="contained" color="error">
                 Xác nhận sửa
               </Button>
-              <Button className="btn btn-ondel btn-cancel" size="large" variant="contained">
+              <Button className="btn btn-ondel btn-cancel" size="large" variant="contained" onClick={()=> setChosenEdit()}>
                 Hủy bỏ thao tác
               </Button>
             </div>

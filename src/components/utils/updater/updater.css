@@ -1,20 +1,22 @@
 .updater{
     display: grid;
-    gap: 1.5rem;
-    grid-template-columns: repeat(auto-fit, 6rem);
+    gap: 2rem;
+    grid-template-columns: repeat(3, max-content);
+    grid-template-rows: 1fr;
     direction: rtl;
 }
 .dashboard-button{
     align-self: center;
-    height: 75%;
-    width: 6rem;
+    height: 80%;
+    width: max-content;
+    justify-self: end;
     direction: ltr;
 }
 
 /* ========== Media Queries (MEDIUM DEVICES): ========== */
 @media screen and (max-width: 1024px) {
     .updater{
-        grid-template-columns: repeat(2, 5rem);
+        grid-template-columns: repeat(3, max-content);
         justify-content: center;
         align-content: center;
     }
