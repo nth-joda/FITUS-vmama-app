@@ -64,6 +64,7 @@ const Vouchers = () => {
   const [winPer, setWinPer] = React.useState("30%");
   const [checkedList, setCheckedList] = React.useState([]);
   const [currentPage, setCurrentPage] = React.useState(0);
+  const [chosenEdit, setChosenEdit] = React.useState();
 
   const renderHead = (item, index) => { 
     if(item === "Chọn" && checkedList.length > 0) return  (<th className="white-txt chosen_num" key={index}>{"[ "+checkedList.length+" ]"}</th>)
@@ -72,31 +73,31 @@ const Vouchers = () => {
 
   const renderBody = (item, index, curPage, limit) => {
     setCurrentPage(curPage);
-  return (<tr className={checkedList.includes(curPage*limit + index + 1) ? "chosen" :""} key={index}>
-      <td>
-        <Checkbox
-          sx = {{ 
-            '& .MuiSvgIcon-root': { fontSize: 28 },
-            color: '#fff',
-            '&.Mui-checked': {color: '#fff' }}}
-          checked={ checkedList.filter(x => x === curPage*limit + index + 1).length >0 ? true : false }
-          onChange={(e) => {
-            const checkedID = (curPage*limit + index +1);
-            checkedList.filter(x => x === checkedID).length <= 0 ? setCheckedList([...checkedList, checkedID]) : setCheckedList([...checkedList.filter(x => x !== checkedID)]);
+    return (<tr className={checkedList.includes(curPage*limit + index + 1) ? "chosen" :""} key={index}>
+        <td>
+          <Checkbox
+            sx = {{ 
+              '& .MuiSvgIcon-root': { fontSize: 28 },
+              color: '#fff',
+              '&.Mui-checked': {color: '#fff' }}}
+            checked={ checkedList.filter(x => x === curPage*limit + index + 1).length >0 ? true : false }
+            onChange={(e) => {
+              const checkedID = (curPage*limit + index +1);
+              checkedList.filter(x => x === checkedID).length <= 0 ? setCheckedList([...checkedList, checkedID]) : setCheckedList([...checkedList.filter(x => x !== checkedID)]);
+              }
             }
-          }
-        />  
-      </td>
-      <td>{item.voucher_name}</td>
-      <td>{item.brand_name}</td>
-      <td className={item.left > 0 ? "centering safe-txt" : "centering danger-txt"}>{item.left}</td>
-      <td className="danger-txt centering">{item.used}</td>
-      <td className="cta-edit">
-        <IconButton aria-label="edit" size="large" sx={{color: "var(--color-main)", transform:"scale(1.1)"}}>
-          <EditIcon />
-        </IconButton>
-      </td>
-    </tr>)
+          />  
+        </td>
+        <td>{item.voucher_name}</td>
+        <td>{item.brand_name}</td>
+        <td className={item.left > 0 ? "centering safe-txt" : "centering danger-txt"}>{item.left}</td>
+        <td className="danger-txt centering">{item.used}</td>
+        <td className="cta-edit">
+          <IconButton aria-label="edit" size="large" sx={{color: "var(--color-main)", transform:"scale(1.1)"}} onClick={() => setChosenEdit(curPage*limit + index + 1)}>
+            <EditIcon />
+          </IconButton>
+        </td>
+      </tr>)
   };
 
   useEffect(() =>{
@@ -121,8 +122,10 @@ const Vouchers = () => {
   const handleDelete = () => {
     setOpenDelete(true);
   }
+
   const handleCloseAdd = () => setOpenAdd(false);
   const handleCloseDelete = () => setOpenDelete(false);
+  const handleCloseEdit = () => {setChosenEdit()};
 
   const modal_Style = {
     position: 'absolute',
@@ -223,6 +226,62 @@ const Vouchers = () => {
             <div className="delete-cta">
               <Button className="btn btn-ondel btn-confirm" size="large" variant="contained" color="error">
                 Xác nhận xóa
+              </Button>
+              <Button className="btn btn-ondel btn-cancel" size="large" variant="contained">
+                Hủy bỏ thao tác
+              </Button>
+            </div>
+          </Box>
+          {/* <ChildModal />  */}
+        </Modal>
+
+        {/* EDIT FORM: */}
+        <Modal
+          open={chosenEdit ? true : false}
+          onClose={handleCloseEdit}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={modal_Style}>
+            <p className="modal__header">Chỉnh sửa voucher:</p>
+            <form>
+              <div className="modal__form-field">
+                <label htmlFor="voucher_name">Tên voucher</label>
+                <TextField
+                  required
+                  id="voucher_name"
+                  label="Bắt buộc"
+                  variant="filled"
+                  defaultValue={vList.find(x => x.id === (chosenEdit))? vList.find(x => x.id === (chosenEdit)).voucher_name : ""}
+                />
+              </div>
+
+              <div className="modal__form-field">
+                <label htmlFor="brand_name">Tên Brand</label>
+                <TextField
+                  required
+                  id="brand_name"
+                  label="Bắt buộc"
+                  variant="filled"
+                  defaultValue={vList.find(x => x.id === (chosenEdit))? vList.find(x => x.id === (chosenEdit)).brand_name : ""}
+                />
+              </div>
+
+              <div className="modal__form-field">
+                <label htmlFor="amount">Số lượng Còn lại</label>
+                <TextField
+                  required
+                  id="amount"
+                  type="number"
+                  label="Bắt buộc"
+                  variant="filled"
+                  defaultValue={vList.find(x => x.id === (chosenEdit))? vList.find(x => x.id === (chosenEdit)).left : ""}
+                />
+              </div>
+            </form>
+            <div className="delete-cta">
+              <Button className="btn btn-ondel btn-confirm" size="large" variant="contained" color="error">
+                Xác nhận sửa
               </Button>
               <Button className="btn btn-ondel btn-cancel" size="large" variant="contained">
                 Hủy bỏ thao tác
