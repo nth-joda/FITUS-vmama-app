@@ -43,12 +43,12 @@ const renderBody = (item, index) => (
 
 const Vmachine = () => {
   return (
-    <div className="vouchers">
-        <div className="vouchers__header">
+    <div className="vmachines">
+        <div className="vmachines__header">
             <Searcher label="Nhập tên VMachine ..." />
             <Updater />
         </div>
-        <div className="vouchers__content">
+        <div className="vmachines__content">
           <Table
             limit="10"
             headData={vmachineTableHead}

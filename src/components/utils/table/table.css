@@ -15,8 +15,8 @@ thead {
 
 tr {
     text-align: left;
-    font-weight: 600;
-    font-size: 1.2rem;
+    font-weight: 500;
+    font-size: 1rem;
 }
 
 th,
@@ -80,6 +80,10 @@ tbody > tr:hover {
 
 /* ========== Media Queries (MEDIUM DEVICES): ========== */
 @media screen and (max-width: 1024px) {
+    tr {
+        font-weight: 500;
+        font-size: 0.8rem;
+    }
 }
 
 /* ========== Media Queries (SMALL DEVICES): ========== */
