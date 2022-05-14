@@ -15,13 +15,13 @@ import Searcher from "../../utils/searcher/Searcher";
 import Updater from "../../utils/updater/Updater";
 import Table from "../../utils/table/Table";
 
-function getWindowDimensions() {
-  const { innerWidth: width, innerHeight: height } = window;
-  return {
-    width,
-    height
-  };
-};
+// function getWindowDimensions() {
+//   const { innerWidth: width, innerHeight: height } = window;
+//   return {
+//     width,
+//     height
+//   };
+// };
 
 
 const voucherTableHead = [
@@ -60,7 +60,12 @@ const Vouchers = () => {
   
   const [openAdd, setOpenAdd] = React.useState(false);
   const [openDelete, setOpenDelete] = React.useState(false);
-  const [winSize, setWinSize] = React.useState(getWindowDimensions());
+  const [winSize, setWinSize] = React.useState(
+    {
+      width: window.innerWidth,
+      height: window.innerHeight
+    }
+  );
   const [winPer, setWinPer] = React.useState("30%");
   const [checkedList, setCheckedList] = React.useState([]);
   const [currentPage, setCurrentPage] = React.useState(0);
@@ -100,8 +105,16 @@ const Vouchers = () => {
       </tr>)
   };
 
+  const setDimension = () => {
+    setWinSize({
+      width: window.innerWidth,
+      height: window.innerHeight
+    })
+  }
+
   useEffect(() =>{
-    if(winSize.width < 400){
+    window.addEventListener('resize', setDimension);
+    if(winSize.width < 450){
       setWinPer("90%");
     }
 
@@ -109,6 +122,11 @@ const Vouchers = () => {
       setWinPer("60%");
     }
     else setWinPer("50%");
+
+    return(() => {
+      window.removeEventListener('resize', setDimension);
+  })
+
   }, [winSize.width]);
 
   useEffect(() =>{setCheckedList([])}, [currentPage])
@@ -120,7 +138,14 @@ const Vouchers = () => {
   };
 
   const handleDelete = () => {
-    setOpenDelete(true);
+    if(checkedList.length > 0){
+      setOpenDelete(true);
+    }
+  }
+
+  const handleRefresh = () => {
+    setCheckedList([]);
+    setChosenEdit();
   }
 
   const handleCloseAdd = () => setOpenAdd(false);
@@ -151,7 +176,7 @@ const Vouchers = () => {
     <div className="vouchers">
         <div className="vouchers__header">
             <Searcher label="Nhập tên voucher ..." />
-            <Updater catchAdd={handleAdd} catchDelete={handleDelete}/>
+            <Updater catchAdd={handleAdd} catchDelete={handleDelete} catchRefresh={handleRefresh} isRefreshDisabled={checkedList.length < 1} isDelDisabled={checkedList.length < 1} />
         </div>
         <div className="vouchers__content">
           <Table
@@ -201,7 +226,14 @@ const Vouchers = () => {
                   variant="filled"
                 />
               </div>
-              <button className="submit-add" >Thêm</button>
+              <div className="delete-cta">
+              <Button className="btn btn-ondel btn-confirm" size="large" variant="contained" color="error">
+                Xác nhận Thêm
+              </Button>
+              <Button className="btn btn-ondel btn-cancel" size="large" variant="contained" onClick={handleCloseAdd}>
+                Hủy bỏ thao tác
+              </Button>
+            </div>
             </form>
           </Box>
           {/* <ChildModal />  */}
@@ -227,7 +259,7 @@ const Vouchers = () => {
               <Button className="btn btn-ondel btn-confirm" size="large" variant="contained" color="error">
                 Xác nhận xóa
               </Button>
-              <Button className="btn btn-ondel btn-cancel" size="large" variant="contained">
+              <Button className="btn btn-ondel btn-cancel" size="large" variant="contained" onClick={handleCloseDelete}>
                 Hủy bỏ thao tác
               </Button>
             </div>
@@ -283,7 +315,7 @@ const Vouchers = () => {
               <Button className="btn btn-ondel btn-confirm" size="large" variant="contained" color="error">
                 Xác nhận sửa
               </Button>
-              <Button className="btn btn-ondel btn-cancel" size="large" variant="contained">
+              <Button className="btn btn-ondel btn-cancel" size="large" variant="contained" onClick={()=> setChosenEdit()}>
                 Hủy bỏ thao tác
               </Button>
             </div>

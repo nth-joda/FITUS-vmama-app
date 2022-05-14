@@ -1,4 +1,4 @@
-.vouchers__header{
+.products__header{
     display: grid;
     grid-template-columns: 40% 55%;
     gap: 1rem;
@@ -14,7 +14,7 @@
 
 /* ========== Media Queries (MEDIUM DEVICES): ========== */
 @media screen and (max-width: 1800px) {
-    .vouchers__header{
+    .products__header{
         grid-template-columns: 65% 32%;
         gap: 0.5rem;
     }
@@ -22,7 +22,7 @@
 
 /* ========== Media Queries (SMALL DEVICES): ========== */
 @media screen and (max-width: 600px) {
-    .vouchers__header{
+    .products__header{
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr;
         margin-bottom: 0;

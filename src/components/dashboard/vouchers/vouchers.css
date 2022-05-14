@@ -1,3 +1,7 @@
+.btn {
+    width: min-width;
+}
+
 .vouchers__header{
     display: grid;
     grid-template-columns: 40% 55%;
@@ -117,8 +121,15 @@
 /* ========== Media Queries (MEDIUM DEVICES): ========== */
 @media screen and (max-width: 1800px) {
     .vouchers__header{
-        grid-template-columns: 65% 32%;
-        gap: 0.5rem;
+        grid-template-columns: 50% 35%;
+    }
+    .delete-cta{
+        padding: 0.7rem;
+        gap: 1.2rem;
+    }
+    .modal__header{
+        font-size: 1.6rem;
+        padding: 0.9rem;
     }
 }
 
