@@ -1,5 +1,5 @@
 .loginForm{
-    width: calc(var(--container-width-lg) - 45%);
+    width: calc(var(--container-width-lg) - 50%);
     position: absolute;
     margin-top: 3rem;
     left: 50%;
@@ -67,8 +67,7 @@
 .loginForm__help{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin: 1.5rem auto;
-    padding: 0 1rem 1rem;
+    margin: 1rem auto;
 }
 
 .loginForm__help label{
@@ -85,6 +84,7 @@
     align-self: center;
     font-size: 1rem;
     text-align: right;
+    right: 0;
 }
 
 .loginForm__submit{
@@ -100,7 +100,7 @@
 /* ========== Media Queries (MEDIUM DEVICES): ========== */
 @media screen and (max-width: 1800px) {
     .loginForm{
-        width: calc(var(--container-width-md) - 40%);
+        width: calc(var(--container-width-md) - 55%);
     }
 
     .loginForm__fields{
@@ -113,10 +113,6 @@
     .loginForm{
         width: calc(var(--container-width-md) - 30%);
         margin-top: 4rem;
-    }
-
-    .loginForm__help{
-        margin: 0.7rem auto;
     }
 
     .loginForm__userInput-field input{

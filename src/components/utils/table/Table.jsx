@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import "./table.css";
 
 const Table = (props) => {
+
 const initDataShown =
     props.limit && props.bodyData
     ? props.bodyData.slice(0, Number(props.limit))
@@ -66,7 +67,7 @@ return (
                 ) : null}
                 {props.bodyData && props.renderBody ? (
                     <tbody>
-                    {dataShown.map((item, index) => props.renderBody(item, index))}
+                    {dataShown.map((item, index) => props.renderBody(item, index, currPage, props.limit))}
                     </tbody>
                 ) : null}
             </table>

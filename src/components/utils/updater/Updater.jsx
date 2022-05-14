@@ -8,7 +8,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 const Updater = (props) => {
   return (
     <div className="updater">
-        <Button className="dashboard-button btn-remove" variant="contained" color="error" endIcon={<DeleteIcon />}>
+        <Button className="dashboard-button btn-remove" onClick={() => props.catchDelete()} variant="contained" color="error" endIcon={<DeleteIcon />}>
             Xóa
         </Button>
 
