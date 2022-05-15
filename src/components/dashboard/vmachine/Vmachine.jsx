@@ -4,7 +4,6 @@ import "./vmachine.css";
 // import IconButton from '@mui/material/IconButton';
 // import EditIcon from '@mui/icons-material/Edit';
 import Checkbox from '@mui/material/Checkbox';
-import Tooltip from '@mui/material/Tooltip';
 
 import vmachines from "../../../assets/vmachine.json";
 import Searcher from "../../utils/searcher/Searcher";

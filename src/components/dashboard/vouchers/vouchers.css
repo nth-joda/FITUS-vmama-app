@@ -25,16 +25,25 @@
     background-color: rgba(255, 0, 0, 0.321);
 }
 
-.delete-cta{
+.modal__cta{
     margin-top: 2rem;
     background: var(--color-main);
     border: 1px solid transparent;
     opacity: 0.9;
     border-radius: 0 0 0.7rem 0.7rem;
-    padding: 0.2rem;
+    padding: 0.5rem;
     display: grid;
+    gap: 1.5rem;
     grid-template-columns: 1fr 1fr;
     transition: var(--transition);
+}
+.modal__cta.modal__cta-refresh, .modal__header.modal__header-refresh{
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+}
+.modal__cta.modal__cta-delete, .modal__header.modal__header-delete{
+    background-color: rgba(255, 0, 0, 0.432);
+    color:var(--color-black)
 }
 
 .delete-cta:hover{

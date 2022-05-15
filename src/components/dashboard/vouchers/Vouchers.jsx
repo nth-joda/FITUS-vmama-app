@@ -15,15 +15,6 @@ import Searcher from "../../utils/searcher/Searcher";
 import Updater from "../../utils/updater/Updater";
 import Table from "../../utils/table/Table";
 
-// function getWindowDimensions() {
-//   const { innerWidth: width, innerHeight: height } = window;
-//   return {
-//     width,
-//     height
-//   };
-// };
-
-
 const voucherTableHead = [
   "Chọn",
   "Tên voucher",
@@ -52,9 +43,6 @@ const renderBodyDelete = (item, index) => {
     <td className="danger-txt centering">{item.used}</td>
   </tr>)
 };
-
-
-
 
 const Vouchers = () => {
   
@@ -194,7 +182,7 @@ const Vouchers = () => {
           aria-describedby="modal-modal-description"
         >
           <Box sx={modal_Style}>
-            <p className="modal__header">Thêm voucher</p>
+            <p className="modal__header modal__header-add">Thêm voucher</p>
             <form>
               <div className="modal__form-field">
                 <label htmlFor="voucher_name">Tên voucher</label>
@@ -226,8 +214,8 @@ const Vouchers = () => {
                   variant="filled"
                 />
               </div>
-              <div className="delete-cta">
-              <Button className="btn btn-ondel btn-confirm" size="large" variant="contained" color="error">
+              <div className="modal__cta modal__cta-add">
+              <Button className="btn btn-ondel btn-confirm" size="large" variant="contained" color="success">
                 Xác nhận Thêm
               </Button>
               <Button className="btn btn-ondel btn-cancel" size="large" variant="contained" onClick={handleCloseAdd}>
@@ -247,7 +235,7 @@ const Vouchers = () => {
           aria-describedby="modal-modal-description"
         >
           <Box sx={modal_Style}>
-            <p className="modal__header">Xóa {checkedList.length} vouchers sau:</p>
+            <p className="modal__header modal__header-delete">Xóa {checkedList.length} vouchers sau:</p>
             <div className="vouchers__content">
               <Table
                   headData={voucherTableHeadDelete}
@@ -255,7 +243,7 @@ const Vouchers = () => {
                   bodyData={getSelectedList}
                   renderBody={(item, index, curPage, limit) => renderBodyDelete(item, index, curPage, limit)}/>
             </div>
-            <div className="delete-cta">
+            <div className="modal__cta modal__cta-delete">
               <Button className="btn btn-ondel btn-confirm" size="large" variant="contained" color="error">
                 Xác nhận xóa
               </Button>
