@@ -27,9 +27,10 @@ code {
 
 
 :root {
-  --color-main: #005593;
+  --color-main: rgb(0, 86, 148);
   --color-white: #fff;
   --color-black: #000;
+  --color-secondary: rgb(122, 120, 122);
   --color-shadow: rgba(191, 191, 191, 0.8) 0px 8px 24px;
   --color-background-content: #387fb5ba;
   --color-background-gray:#EDEDED;
