@@ -8,6 +8,7 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import MenuItem from '@mui/material/MenuItem';
 
 import products from "../../../assets/products.json";
 import Searcher from "../../utils/searcher/Searcher";
@@ -20,6 +21,28 @@ const productTableHead = [
   "Tên brand",
   "Giá tiền",
   "Chỉnh sửa",
+];
+const currencies = [
+  {
+    value: 'USD',
+    label: '$',
+  },
+  {
+    value: 'EUR',
+    label: '€',
+  },
+  {
+    value: 'BTC',
+    label: '฿',
+  },
+  {
+    value: 'JPY',
+    label: '¥',
+  },
+  {
+    value: 'VND',
+    label: 'đ',
+  }
 ];
 
 const productTableHeadDelete = [
@@ -51,6 +74,8 @@ const Products = () => {
   const [isModalDelOpened, setIsModalDelOpened] = useState(false);
   const [isModalRefOpened, setIsModalRefOpened] = useState(false);
   const [isModalAddOpened, setIsModalAddOpened] = useState(false);
+
+  const [currency, setCurrency] = React.useState('VND');
 
   const [winPer, setWinPer] = useState("40%");
 
@@ -156,6 +181,10 @@ const Products = () => {
     setIsModalRefOpened(false);
   }
 
+  // ADD MODAL:
+  const handleCloseModalAdd = () => setIsModalAddOpened(false);
+
+
   // DELETE MODAL: 
   const handleCloseModalDel = () => setIsModalDelOpened(false);
 
@@ -171,6 +200,10 @@ const Products = () => {
 
   const getSelectedList = () => {
     return products.filter(x => checkedList.includes(x.id));
+  }
+
+  const handleChangeCurrency  = (event) => {
+    setCurrency(event.target.value);
   }
 
 
@@ -220,8 +253,74 @@ const Products = () => {
         </Modal>
 
         {/* ADD MODAL */}
-        <Modal>
-          
+        <Modal
+        open={isModalAddOpened}
+        onClose={handleCloseModalAdd}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        >
+          <Box sx={modal_Style}>
+            <p className="modal__header modal__header-add">Thêm sản phẩm</p>
+            <div className="product__contentt">
+            <form>
+              <div className="modal__form-field">
+                <label htmlFor="voucher_name">Tên sản phẩm</label>
+                <TextField
+                  required
+                  id="voucher_name"
+                  label="Bắt buộc"
+                  variant="filled"
+                />
+              </div>
+
+              <div className="modal__form-field">
+                <label htmlFor="brand_name">Tên Brand</label>
+                <TextField
+                  required
+                  id="brand_name"
+                  label="Bắt buộc"
+                  variant="filled"
+                />
+              </div>
+              <div className="modal__form-field">
+                <label htmlFor="unit">Đơn vị</label>
+                <TextField
+                  id="outlined-select-currency"
+                  select
+                  label="Đơn vị"
+                  value={currency}
+                  onChange={handleChangeCurrency}
+                  helperText="Chọn đơn vị giá tiền"
+                >
+                  {currencies.map((option) => (
+                    <MenuItem key={option.value} value={option.value}>
+                      {option.label+" - "+option.value}
+                    </MenuItem>
+                  ))}
+                </TextField>
+              </div>
+
+              <div className="modal__form-field">
+                <label htmlFor="amount">Giá tiền</label>
+                <TextField
+                  required
+                  id="amount"
+                  type="number"
+                  label="Bắt buộc"
+                  variant="filled"
+                />
+              </div>
+              <div className="modal__cta modal__cta-add">
+              <Button className="btn btn-ondel btn-confirm" size="large" variant="contained" color="success">
+                Xác nhận Thêm
+              </Button>
+              <Button className="btn btn-ondel btn-cancel" size="large" variant="contained" onClick={handleCloseModalAdd}>
+                Hủy bỏ thao tác
+              </Button>
+            </div>
+            </form>
+            </div>
+          </Box>
         </Modal>
 
         {/* DELETE FORM */}
