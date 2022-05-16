@@ -2,7 +2,6 @@
     display: grid;
     grid-template-columns: 40% 55%;
     gap: 1rem;
-    margin-bottom: 2rem;
 }
 
 .td-note-sm{
@@ -12,13 +11,13 @@
 /* ========== Media Queries (MEDIUM DEVICES): ========== */
 @media screen and (max-width: 1800px) {
     .vmachines__header{
-        grid-template-columns: 65% 32%;
+        grid-template-columns: 50% 45%;
         gap: 0.5rem;
     }
 }
 
 /* ========== Media Queries (SMALL DEVICES): ========== */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 720px) {
     .vmachines__header{
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr;
