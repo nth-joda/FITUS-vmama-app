@@ -333,7 +333,7 @@ const Vouchers = () => {
                 />
               </div>
             </form>
-            <div className="delete-cta">
+            <div className="modal__cta modal__cta-edit">
               <Button className="btn btn-ondel btn-confirm" size="large" variant="contained" color="error">
                 Xác nhận sửa
               </Button>
