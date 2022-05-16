@@ -67,7 +67,7 @@
 .loginForm__help{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin: 1rem auto;
+    margin: 0 auto;
 }
 
 .loginForm__help label{
@@ -109,9 +109,9 @@
     
 }
 
-@media screen and (max-width: 1550px) {
+@media screen and (max-width: 1200px) {
     .loginForm{
-        width: calc(var(--container-width-md) - 30%);
+        width: calc(var(--container-width-md) - 40%);
         margin-top: 4rem;
     }
 
