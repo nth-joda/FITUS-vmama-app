@@ -48,6 +48,7 @@ const Vouchers = () => {
   
   const [openAdd, setOpenAdd] = React.useState(false);
   const [openDelete, setOpenDelete] = React.useState(false);
+  const [openRefresh, setOpenRefresh] = React.useState(false);
   const [winSize, setWinSize] = React.useState(
     {
       width: window.innerWidth,
@@ -56,26 +57,26 @@ const Vouchers = () => {
   );
   const [winPer, setWinPer] = React.useState("30%");
   const [checkedList, setCheckedList] = React.useState([]);
-  const [currentPage, setCurrentPage] = React.useState(0);
   const [chosenEdit, setChosenEdit] = React.useState();
+
+
 
   const renderHead = (item, index) => { 
     if(item === "Chọn" && checkedList.length > 0) return  (<th className="white-txt chosen_num" key={index}>{"[ "+checkedList.length+" ]"}</th>)
     else return (<th className={index === 3 || index === 4 ? "white-txt centering" : "white-txt"} key={index}>{item}</th>);
   };
 
-  const renderBody = (item, index, curPage, limit) => {
-    setCurrentPage(curPage);
-    return (<tr className={checkedList.includes(curPage*limit + index + 1) ? "chosen" :""} key={index}>
+  const renderBody = (item, index) => {
+    return (<tr className={checkedList.includes(item.id) ? "chosen" :""} key={index}>
         <td>
           <Checkbox
             sx = {{ 
               '& .MuiSvgIcon-root': { fontSize: 28 },
               color: '#fff',
               '&.Mui-checked': {color: '#fff' }}}
-            checked={ checkedList.filter(x => x === curPage*limit + index + 1).length >0 ? true : false }
+            checked={ checkedList.filter(x => x === item.id).length >0 ? true : false }
             onChange={(e) => {
-              const checkedID = (curPage*limit + index +1);
+              const checkedID = (item.id);
               checkedList.filter(x => x === checkedID).length <= 0 ? setCheckedList([...checkedList, checkedID]) : setCheckedList([...checkedList.filter(x => x !== checkedID)]);
               }
             }
@@ -86,7 +87,7 @@ const Vouchers = () => {
         <td className={item.left > 0 ? "centering safe-txt" : "centering danger-txt"}>{item.left}</td>
         <td className="danger-txt centering">{item.used}</td>
         <td className="cta-edit">
-          <IconButton aria-label="edit" size="large" sx={{color: "var(--color-main)", transform:"scale(1.1)"}} onClick={() => setChosenEdit(curPage*limit + index + 1)}>
+          <IconButton aria-label="edit" size="large" sx={{color: "var(--color-main)", transform:"scale(1.1)"}} onClick={() => setChosenEdit(item.id)}>
             <EditIcon />
           </IconButton>
         </td>
@@ -117,8 +118,7 @@ const Vouchers = () => {
 
   }, [winSize.width]);
 
-  useEffect(() =>{setCheckedList([])}, [currentPage])
-
+  // HANDLERS:
 
   const handleAdd = () => {
     setOpenAdd(true);
@@ -132,13 +132,19 @@ const Vouchers = () => {
   }
 
   const handleRefresh = () => {
-    setCheckedList([]);
     setChosenEdit();
+    setOpenRefresh(true);
+  }
+
+  const handleConfirmRefresh = () => {
+    setCheckedList([]);
+    setOpenRefresh(false);
   }
 
   const handleCloseAdd = () => setOpenAdd(false);
   const handleCloseDelete = () => setOpenDelete(false);
   const handleCloseEdit = () => {setChosenEdit()};
+  const handleCloseRefresh = () => setOpenRefresh(false);
 
   const modal_Style = {
     position: 'absolute',
@@ -172,7 +178,7 @@ const Vouchers = () => {
               headData={voucherTableHead}
               renderHeader={(item, index) => renderHead(item, index)}
               bodyData={vList}
-              renderBody={(item, index, curPage, limit) => renderBody(item, index, curPage, limit)}/>
+              renderBody={(item, index) => renderBody(item, index)}/>
         </div>
         {/* ADD FORM:  */}
         <Modal
@@ -227,6 +233,34 @@ const Vouchers = () => {
           {/* <ChildModal />  */}
         </Modal>
 
+        {/* REFRESH FROM */}
+        <Modal
+          open={openRefresh}
+          onClose={handleCloseRefresh}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={modal_Style}>
+            <p className="modal__header modal__header-refresh">Bỏ chọn tất cả [ {checkedList.length} ] vouchers sau:</p>
+            <div className="vouchers__content">
+              <Table
+                  headData={voucherTableHeadDelete}
+                  renderHeader={(item, index) => renderHead(item, index)}
+                  bodyData={getSelectedList}
+                  renderBody={(item, index) => renderBodyDelete(item, index)}/>
+            </div>
+            <div className="modal__cta modal__cta-refresh">
+              <Button className="btn btn-ondel btn-confirm" size="large" variant="contained" color="error" onClick={handleConfirmRefresh}>
+                Xác nhận bỏ chọn
+              </Button>
+              <Button className="btn btn-ondel btn-cancel" size="large" variant="contained" onClick={handleCloseRefresh}>
+                Hủy bỏ thao tác
+              </Button>
+            </div>
+          </Box>
+
+        </Modal>
+
         {/* DELETE FORM */}
         <Modal
           open={openDelete}
@@ -241,7 +275,7 @@ const Vouchers = () => {
                   headData={voucherTableHeadDelete}
                   renderHeader={(item, index) => renderHead(item, index)}
                   bodyData={getSelectedList}
-                  renderBody={(item, index, curPage, limit) => renderBodyDelete(item, index, curPage, limit)}/>
+                  renderBody={(item, index) => renderBodyDelete(item, index)}/>
             </div>
             <div className="modal__cta modal__cta-delete">
               <Button className="btn btn-ondel btn-confirm" size="large" variant="contained" color="error">
