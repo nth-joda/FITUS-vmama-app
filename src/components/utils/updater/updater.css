@@ -24,7 +24,7 @@
     }
     .dashboard-button{
         align-self: center;
-        width: min-content;
+        width: max-content;
         height: 75%;
         padding: 0.2rem;
     }
@@ -32,6 +32,18 @@
 }
 
 /* ========== Media Queries (SMALL DEVICES): ========== */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 720px) {
+    .updater{
+        grid-template-columns: repeat(3, max-content);
+        justify-content: center;
+        align-content: center;
+        height: 85%;
+    }
+    .dashboard-button{
+        align-self: center;
+        width: max-content;
+        height: 75%;
+        padding: 0.2rem;
+    }
 
 }
