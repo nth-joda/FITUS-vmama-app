@@ -10,7 +10,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 
-import products from "../../../assets/products.json";
+import products from "../../../assets/products2.json";
 import Searcher from "../../utils/searcher/Searcher";
 import Updater from "../../utils/updater/Updater";
 import Table from "../../utils/table/Table";
@@ -66,6 +66,7 @@ const renderBodyDelete = (item, index) => {
 const Products = () => {
   // ========= STATES
   const [checkedList, setCheckedList] = useState([]);
+  const [chosenEditItem, setChosenEditItem] = useState();
   const [winSize, setWinSize] =useState({
     width: window.innerWidth,
     height: window.innerHeight
@@ -148,9 +149,9 @@ const Products = () => {
       </td>
       <td>{item.product_name}</td>
       <td>{item.brand_name}</td>
-      <td>{item.cost}</td>
+      <td>{(currencies.find(x => x.value === item.unit)? currencies.find(x => x.value === item.unit).label :item.unit) + " " +item.cost}</td>
       <td className="cta-edit">
-        <IconButton aria-label="edit" size="large" sx={{color: "var(--color-main)", transform:"scale(1.1)"}}>
+        <IconButton aria-label="edit" size="large" sx={{color: "var(--color-main)", transform:"scale(1.1)"}} onClick={() => setChosenEditItem(item.id)}>
           <EditIcon />
         </IconButton>
       </td>
@@ -195,6 +196,9 @@ const Products = () => {
     // TODO: Toast msg: Đã xóa sản phẩm thành công
     // TODO: Re-GET products from DB
   }
+
+  // EDIT MODAL:
+  const handleCloseModalEdit = () => setChosenEditItem();
 
   // Others: 
 
@@ -261,64 +265,64 @@ const Products = () => {
         >
           <Box sx={modal_Style}>
             <p className="modal__header modal__header-add">Thêm sản phẩm</p>
-            <div className="product__contentt">
-            <form>
-              <div className="modal__form-field">
-                <label htmlFor="voucher_name">Tên sản phẩm</label>
-                <TextField
-                  required
-                  id="voucher_name"
-                  label="Bắt buộc"
-                  variant="filled"
-                />
-              </div>
+            <div className="product__content">
+              <form>
+                <div className="modal__form-field">
+                  <label htmlFor="voucher_name">Tên sản phẩm</label>
+                  <TextField
+                    required
+                    id="voucher_name"
+                    label="Bắt buộc"
+                    variant="filled"
+                  />
+                </div>
 
-              <div className="modal__form-field">
-                <label htmlFor="brand_name">Tên Brand</label>
-                <TextField
-                  required
-                  id="brand_name"
-                  label="Bắt buộc"
-                  variant="filled"
-                />
-              </div>
-              <div className="modal__form-field">
-                <label htmlFor="unit">Đơn vị</label>
-                <TextField
-                  id="outlined-select-currency"
-                  select
-                  label="Đơn vị"
-                  value={currency}
-                  onChange={handleChangeCurrency}
-                  helperText="Chọn đơn vị giá tiền"
-                >
-                  {currencies.map((option) => (
-                    <MenuItem key={option.value} value={option.value}>
-                      {option.label+" - "+option.value}
-                    </MenuItem>
-                  ))}
-                </TextField>
-              </div>
+                <div className="modal__form-field">
+                  <label htmlFor="brand_name">Tên Brand</label>
+                  <TextField
+                    required
+                    id="brand_name"
+                    label="Bắt buộc"
+                    variant="filled"
+                  />
+                </div>
+                <div className="modal__form-field">
+                  <label htmlFor="unit">Đơn vị</label>
+                  <TextField
+                    id="outlined-select-currency"
+                    select
+                    label="Đơn vị"
+                    value={currency}
+                    onChange={handleChangeCurrency}
+                    helperText="Chọn đơn vị giá tiền"
+                  >
+                    {currencies.map((option) => (
+                      <MenuItem key={option.value} value={option.value}>
+                        {option.label+" - "+option.value}
+                      </MenuItem>
+                    ))}
+                  </TextField>
+                </div>
 
-              <div className="modal__form-field">
-                <label htmlFor="amount">Giá tiền</label>
-                <TextField
-                  required
-                  id="amount"
-                  type="number"
-                  label="Bắt buộc"
-                  variant="filled"
-                />
+                <div className="modal__form-field">
+                  <label htmlFor="amount">Giá tiền</label>
+                  <TextField
+                    required
+                    id="amount"
+                    type="number"
+                    label="Bắt buộc"
+                    variant="filled"
+                  />
+                </div>
+                <div className="modal__cta modal__cta-add">
+                <Button className="btn btn-ondel btn-confirm" size="large" variant="contained" color="success">
+                  Xác nhận Thêm
+                </Button>
+                <Button className="btn btn-ondel btn-cancel" size="large" variant="contained" onClick={handleCloseModalAdd}>
+                  Hủy bỏ thao tác
+                </Button>
               </div>
-              <div className="modal__cta modal__cta-add">
-              <Button className="btn btn-ondel btn-confirm" size="large" variant="contained" color="success">
-                Xác nhận Thêm
-              </Button>
-              <Button className="btn btn-ondel btn-cancel" size="large" variant="contained" onClick={handleCloseModalAdd}>
-                Hủy bỏ thao tác
-              </Button>
-            </div>
-            </form>
+              </form>
             </div>
           </Box>
         </Modal>
@@ -332,7 +336,7 @@ const Products = () => {
         >
           <Box sx={modal_Style}>
             <p className="modal__header modal__header-delete">Xóa {checkedList.length} sản phẩm sau:</p>
-            <div className="vouchers__content">
+            <div className="products__content">
               <Table
                   headData={productTableHeadDelete}
                   renderHeader={(item, index) => renderHead(item, index)}
@@ -349,7 +353,82 @@ const Products = () => {
             </div>
           </Box>
           {/* <ChildModal />  */}
-        </Modal> 
+        </Modal>
+
+        {/* EDIT MODAL */}
+        <Modal
+          open={chosenEditItem ? true : false}
+          onClose={handleCloseModalEdit}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={modal_Style}>
+            <p className="modal__header modal__header-edit">Chỉnh sửa sản phẩm</p>
+            <div className="products__content">
+              <form>
+                <div className="modal__form-field">
+                  <label htmlFor="voucher_name">Tên sản phẩm</label>
+                  <TextField
+                    required
+                    id="voucher_name"
+                    label="Bắt buộc"
+                    variant="filled"
+                    defaultValue={products.find(x => x.id === (chosenEditItem))? products.find(x => x.id === (chosenEditItem)).product_name : ""}
+                  />
+                </div>
+
+                <div className="modal__form-field">
+                  <label htmlFor="brand_name">Tên Brand</label>
+                  <TextField
+                    required
+                    id="brand_name"
+                    label="Bắt buộc"
+                    variant="filled"
+                    defaultValue={products.find(x => x.id === (chosenEditItem))? products.find(x => x.id === (chosenEditItem)).brand_name : ""}
+                  />
+                </div>
+                <div className="modal__form-field">
+                  <label htmlFor="unit">Đơn vị</label>
+                  <TextField
+                    id="outlined-select-currency"
+                    select
+                    label="Đơn vị"
+                    value={currency}
+                    onChange={handleChangeCurrency}
+                    helperText="Chọn đơn vị giá tiền"
+                  >
+                    {currencies.map((option) => (
+                      <MenuItem key={option.value} value={option.value}>
+                        {option.label+" - "+option.value}
+                      </MenuItem>
+                    ))}
+                  </TextField>
+                </div>
+
+                <div className="modal__form-field">
+                  <label htmlFor="amount">Giá tiền</label>
+                  <TextField
+                    required
+                    id="amount"
+                    type="number"
+                    label="Bắt buộc"
+                    variant="filled"
+                    defaultValue={products.find(x => x.id === (chosenEditItem))? products.find(x => x.id === (chosenEditItem)).cost : ""}
+
+                  />
+                </div>
+                <div className="modal__cta modal__cta-edit">
+                  <Button className="btn btn-ondel btn-confirm" size="large" variant="contained" color="success">
+                    Xác nhận Sửa
+                  </Button>
+                  <Button className="btn btn-ondel btn-cancel" size="large" variant="contained" onClick={handleCloseModalEdit}>
+                    Hủy bỏ thao tác
+                  </Button>
+                </div>
+              </form>
+            </div>
+          </Box>
+        </Modal>
     </div>
   )
 }
