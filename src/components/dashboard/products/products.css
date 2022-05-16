@@ -2,11 +2,6 @@
     display: grid;
     grid-template-columns: 40% 55%;
     gap: 1rem;
-    margin-bottom: 0rem;
-}
-
-.checked-row{
-    background-color: rgba(255, 0, 0, 0.321);
 }
 
 .Total-checked{
