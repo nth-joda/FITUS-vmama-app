@@ -45,6 +45,13 @@
     background: var(--color-secondary);
 }
 
+.modal__cta.modal__cta-edit,
+.modal__header.modal__header-edit {
+    color: var(--color-black);
+    background: var(--color-secondary);
+}
+
+
 .modal__header.modal__header-add {
     background: var(--color-main);
 }

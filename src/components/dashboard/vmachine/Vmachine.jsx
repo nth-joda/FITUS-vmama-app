@@ -358,9 +358,9 @@ const Vmachine = () => {
                 </div>
               </form>
             </div>
-            <div className="modal__cta modal__cta-add">
+            <div className="modal__cta modal__cta-edit">
               <Button className="btn btn-ondel btn-confirm" size="large" variant="contained" color="success">
-                Xác nhận thêm
+                Xác nhận sửa
               </Button>
               <Button className="btn btn-ondel btn-cancel" size="large" variant="contained" onClick={handleCloseModalEdit}>
                 Hủy bỏ thao tác
