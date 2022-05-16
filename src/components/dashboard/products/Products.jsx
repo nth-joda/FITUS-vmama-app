@@ -123,19 +123,19 @@ const Products = () => {
 
   const handleListItemChange = (e, item, index) => {
     if(e.target.checked){
-      if (checkedList.filter(x => x.id === item.id).length < 1)
+      if (checkedList.filter(x => x === item.id).length < 1)
         setCheckedList([...checkedList, item.id]);
     }
     else{
-      if (checkedList.find(x => x.id === item.id))
-        setCheckedList(...checkedList.filter(x => x.id !== item.id));
+      if (checkedList.find(x => x === item.id))
+        setCheckedList([...checkedList.filter(x => x !== item.id)]);
     }
   }
 
   const renderHead = (item, index) => { return item === "Chọn" && checkedList.length > 0 ? (<th key={index} className="Total-checked">{"[ "+checkedList.length+" ]"}</th>) : (<th key={index}>{item}</th>)};
   
   const renderBody = (item, index) => (
-    <tr key={index} className={checkedList.includes(item.id)? "checked-row": ""}>
+    <tr key={index} className={checkedList.includes(item.id) ? "chosen" : ""}>
       <td>
       <Checkbox
         sx = {{ 
@@ -143,7 +143,7 @@ const Products = () => {
           color: '#fff',
           '&.Mui-checked': {color: '#fff' }}
         }
-        checked={checkedList.includes(item.id)}
+        checked={checkedList.filter(x => x === item.id).length >0 ? true : false}
         onChange={(e) => handleListItemChange(e, item, index)}
       />
       </td>
