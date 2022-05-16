@@ -15,7 +15,7 @@ const LeftNav = (props) => {
             <div onClick={() => setChange("vouchers")}>
                 <NavOption isActive={beingActive === "vouchers" ? "active" : "" } key="vouchers" icon={"voucher"} dpName="Vouchers" />
             </div>
-         
+            
             <div onClick={() =>  setChange("product")}>
                 <NavOption isActive={beingActive === "product" ? "active" : "" }  key="product" icon={"product"} dpName="Product" />
             </div>
