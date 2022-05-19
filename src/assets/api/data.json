@@ -1,0 +1,31 @@
+{
+  "data": {
+    "metadata": {
+      "page": 1,
+      "per_page": 2,
+      "total_pages": 2,
+      "total_records": 4
+    },
+    "products": [
+      {
+        "ID": 34,
+        "CreatedAt": "2022-05-17T21:01:25.637Z",
+        "UpdatedAt": "2022-05-17T21:01:25.637Z",
+        "DeletedAt": null,
+        "ProductName": "Shampoo",
+        "ProviderID": 4
+      },
+      {
+        "ID": 44,
+        "CreatedAt": "2022-05-17T21:01:45.357Z",
+        "UpdatedAt": "2022-05-17T21:01:45.357Z",
+        "DeletedAt": null,
+        "ProductName": "Conditioner",
+        "ProviderID": 4
+      }
+    ]
+  },
+  "error": null,
+  "message": "Product found successfully.",
+  "status": 200
+}
