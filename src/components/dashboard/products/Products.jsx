@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./products.css";
 
 import IconButton from "@mui/material/IconButton";
@@ -13,6 +14,18 @@ import DATA from "../../../assets/api/data.json";
 import Searcher from "../../utils/searcher/Searcher";
 import Updater from "../../utils/updater/Updater";
 import Table from "../../utils/table/Table";
+
+const URL = `https://rpa-voucher-exchange.herokuapp.com`;
+const endpoint = `/api/v1/products?page=1`;
+const token = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZV9pZCI6IjQiLCJwcm92aWRlcl9pZCI6IjQiLCJpc3MiOiJnaXRodWIuY29tL250aWtob2EiLCJleHAiOjE2NTM1MzAyMjQsImlhdCI6MTY1MjkyNTQyNH0.8qNbWY_zOisHYM64iMb2z75nbx37Z59TkNsZMD929Q8`;
+const config = {
+  headers: {
+    Authorization: token,
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Origin": "http://localhost:3000",
+    "Content-Type": "application/json",
+  },
+};
 
 // const DB_Headers = [
 //   "ID",
@@ -78,6 +91,14 @@ const Products = () => {
   // DATA
   const [products, setProducts] = useState([]);
   useEffect(() => {
+    // TODO: SEND REQUEST to get All products
+    // if status == 200 : setProducts
+    axios
+      .get(URL + endpoint, config)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => console("err: ", err));
     setProducts(DATA.data.products);
   }, []);
 
@@ -100,10 +121,6 @@ const Products = () => {
       window.removeEventListener("resize", setDimension);
     };
   }, [winSize.width]);
-
-  // useEffect(() => {
-  //   console.log("set products: ", products);
-  // }, [products]);
 
   // ========= END OF STATES
 
