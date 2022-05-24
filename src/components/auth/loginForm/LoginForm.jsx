@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {Link,Route} from "react-router-dom"
 import axios from "axios";
 import Checkbox from "@mui/material/Checkbox";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -13,23 +14,25 @@ const url = `https://rpa-voucher-exchange.herokuapp.com`;
 const endpoint = `/api/v1/auth/login`;
 
 const LoginForm = () => {
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
+  const [userName, setUserName] = useState("asdsa");
+  const [password, setPassword] = useState("asdsad");
   const [isWaiting, setIsWaiting] = useState(false);
 
   const formSubmitHandler = () => {
     setIsWaiting(true);
-    const config = {
-      body: JSON.stringify({
-        username: userName,
-        password: password,
-      }),
+    const body = {
+      username: userName,
+      password: password,
+
     };
     axios
-      .post(url + endpoint, config)
+      .post(url + endpoint, body)
       .then((res) => {
-        console.log("result: ", res);
         setIsWaiting(false);
+        <Route path='/privacy-policy' component={() => { 
+          window.location.href = 'https://google.com'; 
+          return null;
+     }}/>
       })
       .catch((err) => {
         console.log("error: ", err);
