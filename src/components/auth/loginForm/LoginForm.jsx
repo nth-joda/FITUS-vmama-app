@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import {Link,Route} from "react-router-dom"
+import {Navigate} from "react-router-dom"
 import axios from "axios";
 import Checkbox from "@mui/material/Checkbox";
 import CircularProgress from "@mui/material/CircularProgress";
+//import { Redirect } from 'react-router-dom';
 
 import "./loginForm.css";
 import "./forgotPassword/ForgotPassword";
@@ -17,6 +18,7 @@ const LoginForm = () => {
   const [userName, setUserName] = useState("asdsa");
   const [password, setPassword] = useState("asdsad");
   const [isWaiting, setIsWaiting] = useState(false);
+  const [user, setUser] = useState(false);
 
   const formSubmitHandler = () => {
     setIsWaiting(true);
@@ -29,10 +31,7 @@ const LoginForm = () => {
       .post(url + endpoint, body)
       .then((res) => {
         setIsWaiting(false);
-        <Route path='/privacy-policy' component={() => { 
-          window.location.href = 'https://google.com'; 
-          return null;
-     }}/>
+        setUser(true);
       })
       .catch((err) => {
         console.log("error: ", err);
@@ -40,7 +39,7 @@ const LoginForm = () => {
       });
   };
 
-  return (
+  return user ? (<Navigate to="/dashboard" />) : (
     <div className="loginForm">
       <form className="loginForm__form">
         <h2 className="loginForm__greeting">Xin Chào</h2>
