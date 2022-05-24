@@ -1,16 +1,14 @@
-
-
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
@@ -24,8 +22,6 @@ code {
   text-decoration: none;
 }
 
-
-
 :root {
   --color-main: rgb(0, 86, 148);
   --color-white: #fff;
@@ -33,10 +29,10 @@ code {
   --color-secondary: rgb(122, 120, 122);
   --color-shadow: rgba(191, 191, 191, 0.8) 0px 8px 24px;
   --color-background-content: #387fb5ba;
-  --color-background-gray:#EDEDED;
+  --color-background-gray: #ededed;
   --color-gray-text: rgb(137, 137, 137);
   --color-safe-text: rgb(41, 106, 39);
-  --color-danger-text: rgb(204,67,74);
+  --color-danger-text: rgb(204, 67, 74);
 
   --container-width-lg: 75%;
   --container-width-md: 86%;
@@ -49,7 +45,7 @@ code {
   --transition: all 400ms ease;
 }
 
-.btn{
+.btn {
   font-size: 1.5rem;
   padding: 0.8rem;
   background: transparent;
@@ -59,14 +55,21 @@ code {
   transition: var(--transition);
 }
 
-.btn-primary{
+.btn-primary {
   background-color: var(--color-main);
   border-color: transparent;
   color: var(--color-white);
 }
 
-.btn-primary:hover{
+.btn-primary:hover {
   background-color: transparent;
   color: var(--color-main);
   border-color: var(--color-main);
+}
+
+.btn:disabled {
+  cursor: default;
+  background-color: var(--color-gray-text);
+  color: var(--color-white);
+  border-color: transparent;
 }

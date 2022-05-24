@@ -9,8 +9,6 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import MenuItem from "@mui/material/MenuItem";
-import DATA from "../../../assets/api/data.json";
 import Searcher from "../../utils/searcher/Searcher";
 import Updater from "../../utils/updater/Updater";
 import Table from "../../utils/table/Table";
@@ -97,7 +95,6 @@ const Products = () => {
         setProducts(res.data.data.products);
       })
       .catch((err) => console("err: ", err));
-    setProducts(DATA.data.products);
   }, []);
 
   const setDimension = () => {
