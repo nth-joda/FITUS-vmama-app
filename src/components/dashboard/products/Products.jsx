@@ -94,7 +94,7 @@ const Products = () => {
     axios
       .get(URL + endpoint, config)
       .then((res) => {
-        console.log(res);
+        setProducts(res.data.data.products);
       })
       .catch((err) => console("err: ", err));
     setProducts(DATA.data.products);
