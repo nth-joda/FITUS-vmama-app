@@ -21,8 +21,6 @@ const token = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZV9pZCI6I
 const config = {
   headers: {
     Authorization: token,
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Origin": "http://localhost:3000",
     "Content-Type": "application/json",
   },
 };
@@ -96,7 +94,7 @@ const Products = () => {
     axios
       .get(URL + endpoint, config)
       .then((res) => {
-        console.log(res);
+        setProducts(res.data.data.products);
       })
       .catch((err) => console("err: ", err));
     setProducts(DATA.data.products);
