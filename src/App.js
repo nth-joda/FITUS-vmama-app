@@ -1,23 +1,21 @@
+import React, { useState, useEffect } from "react";
 import Auth from "./components/auth/Auth";
 import Dashboard from "./components/dashboard/Dashboard";
-import ResetPassword from "./components/auth/resetPassword/ResetPassword"
-
-import { BrowserRouter as Router,Routes, Route} from 'react-router-dom';
-import './App.css';
-
+import ResetPassword from "./components/auth/resetPassword/ResetPassword";
+import AppRouter from "./AppRouter";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Redirect,
+} from "react-router-dom";
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <Routes>
-          <Route exact path='/' element={<Auth />}></Route>
-          <Route exact path='/login' element={<Auth />}></Route>
-          <Route exact path='/dashboard' element={<Dashboard />}></Route>
-          <Route exact path='/vouchers' element={<Dashboard />}></Route>
-          <Route exact path='/resetPassword' element={<ResetPassword />}></Route>
-        </Routes>
-
+        <AppRouter></AppRouter>
       </Router>
     </div>
   );

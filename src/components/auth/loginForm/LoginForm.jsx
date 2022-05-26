@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import {Navigate} from "react-router-dom"
+import React, { useState, useEffect } from "react";
+import { Navigate } from "react-router-dom";
 import axios from "axios";
 import Checkbox from "@mui/material/Checkbox";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -14,32 +14,34 @@ const label_NhoMK = { inputProps: { "aria-label": "Nhớ Mật Khẩu" } };
 const url = `https://rpa-voucher-exchange.herokuapp.com`;
 const endpoint = `/api/v1/auth/login`;
 
-const LoginForm = () => {
-  const [userName, setUserName] = useState("asdsa");
-  const [password, setPassword] = useState("asdsad");
+const LoginForm = (props) => {
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  const [isRemember, setIsRemember] = useState("false");
   const [isWaiting, setIsWaiting] = useState(false);
-  const [user, setUser] = useState(false);
 
   const formSubmitHandler = () => {
     setIsWaiting(true);
     const body = {
       username: userName,
       password: password,
-
     };
     axios
       .post(url + endpoint, body)
       .then((res) => {
         setIsWaiting(false);
-        setUser(true);
+        props.handleLoginMsg({ code: "200", msg: "Đăng nhập thành công" });
+        localStorage.setItem("name", res.data.data.name);
+        localStorage.setItem("token", res.data.data.token);
       })
       .catch((err) => {
         console.log("error: ", err);
         setIsWaiting(false);
+        props.handleLoginMsg({ code: "401", msg: "Đăng nhập thất bại" });
       });
   };
 
-  return user ? (<Navigate to="/dashboard" />) : (
+  return (
     <div className="loginForm">
       <form className="loginForm__form">
         <h2 className="loginForm__greeting">Xin Chào</h2>
@@ -76,7 +78,11 @@ const LoginForm = () => {
         </div>
         <div className="loginForm__help">
           <label>
-            <Checkbox name="rememberAcc" id="rememberAcc" />
+            <Checkbox
+              name="rememberAcc"
+              id="rememberAcc"
+              onChange={(e) => setIsRemember(e.target.value)}
+            />
             Nhớ tài khoản
           </label>
           <a href="#" className="forgotPassword">
