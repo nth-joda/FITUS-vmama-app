@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./dashboardHeader.css";
 import HeaderDropdown from "./headerDropdown/HeaderDropdown";
 import PersonIcon from "@mui/icons-material/Person";
@@ -7,9 +7,11 @@ import Popover from "@mui/material/Popover";
 import Logo from "../../../assets/VMAMA logo/VMAMA Text only.png";
 
 const DashboardHeader = () => {
-  // const dropdown_toggle_el = useRef(null);
-  // const dropdown_content_el = useRef(null);
-  // clickOutsideRef(dropdown_content_el, dropdown_toggle_el);
+  const [userName, setUserName] = useState("");
+
+  useEffect(() => {
+    setUserName(localStorage.getItem("name"));
+  }, []);
 
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -38,7 +40,7 @@ const DashboardHeader = () => {
           onClick={handleClick}
         >
           <PersonIcon className="profile-avt"></PersonIcon>
-          <div className="profile-name">Nguyen Van A</div>
+          <div className="profile-name">{userName}</div>
         </div>
         <Popover
           id={id}

@@ -3,6 +3,8 @@ import { Navigate } from "react-router-dom";
 import axios from "axios";
 import Checkbox from "@mui/material/Checkbox";
 import CircularProgress from "@mui/material/CircularProgress";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import VisibilityIcon from "@mui/icons-material/Visibility";
 //import { Redirect } from 'react-router-dom';
 
 import "./loginForm.css";
@@ -19,6 +21,7 @@ const LoginForm = (props) => {
   const [password, setPassword] = useState("");
   const [isRemember, setIsRemember] = useState("false");
   const [isWaiting, setIsWaiting] = useState(false);
+  const [isHidden, setIsHidden] = useState(true);
 
   const formSubmitHandler = () => {
     setIsWaiting(true);
@@ -65,14 +68,25 @@ const LoginForm = (props) => {
               <label htmlFor="password">
                 <i className="bx bxs-lock"></i>
               </label>
-              <input
-                type="password"
-                name="password"
-                placeholder="Mật khẩu"
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                }}
-              />
+              <div className="password-input">
+                <input
+                  type={isHidden ? "password" : "text"}
+                  name="password"
+                  placeholder="Mật khẩu"
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
+                />
+                {isHidden ? (
+                  <VisibilityIcon
+                    onClick={() => setIsHidden(false)}
+                  ></VisibilityIcon>
+                ) : (
+                  <VisibilityOffIcon
+                    onClick={() => setIsHidden(true)}
+                  ></VisibilityOffIcon>
+                )}
+              </div>
             </div>
           </div>
         </div>

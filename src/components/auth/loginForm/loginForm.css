@@ -1,143 +1,166 @@
-.loginForm{
-    width: calc(var(--container-width-lg) - 50%);
-    position: absolute;
-    margin-top: 3rem;
-    left: 50%;
-    transform: translate(-50%);
-    /* top: 50%;
+.loginForm {
+  width: calc(var(--container-width-lg) - 50%);
+  position: absolute;
+  margin-top: 3rem;
+  left: 50%;
+  transform: translate(-50%);
+  /* top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%); */
 }
 
-.loginForm__greeting{
-    color: var(--color-main);
-    text-align: center;
-    padding: 0.5rem;
-    font-size: 1.8rem;
-    border: 0.15rem solid var(--color-main);
-    border-bottom: none;
-    border-radius: 0.7rem 0.7rem 0 0;
+.loginForm__greeting {
+  color: var(--color-main);
+  text-align: center;
+  padding: 0.5rem;
+  font-size: 1.8rem;
+  border: 0.15rem solid var(--color-main);
+  border-bottom: none;
+  border-radius: 0.7rem 0.7rem 0 0;
 }
 
-.loginForm__form{
-    padding:0.5rem;
+.loginForm__form {
+  padding: 0.5rem;
 }
 
-.loginForm__userInput{
-    border: 0.15rem solid var(--color-main);
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 0 0 0.7rem 0.7rem;
+.loginForm__userInput {
+  border: 0.15rem solid var(--color-main);
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 0 0 0.7rem 0.7rem;
 }
 
-.loginForm__fields{
-    margin: 3rem auto;
-    width: var(--container-width-lg);
+.loginForm__fields {
+  margin: 3rem auto;
+  width: var(--container-width-lg);
 }
 
-.loginForm__userInput-field{
-    font-size: 1.5rem;
-    line-height: 3rem;
-    display: grid;
-    grid-template-columns: 15% 85%;
-    margin-bottom: 3rem;
-
+.loginForm__userInput-field {
+  font-size: 1.5rem;
+  line-height: 3rem;
+  display: grid;
+  grid-template-columns: 15% 85%;
+  margin-bottom: 3rem;
 }
 
-.loginForm__userInput-field label{
-    background-color:var(--color-main);
-    color: var(--color-white);
-    padding: 0.5rem;
-    display: inline-block;
-    text-align: center;
-    line-height: 2.5rem;
-    border-radius: 0.5rem 0 0 0.5rem;
+.loginForm__userInput-field label {
+  background-color: var(--color-main);
+  color: var(--color-white);
+  padding: 0.5rem;
+  display: inline-block;
+  text-align: center;
+  line-height: 2.5rem;
+  border-radius: 0.5rem 0 0 0.5rem;
 }
 
-.loginForm__userInput-field input{
-    border: 0.15rem solid var(--color-main);
-    border-radius: 0 0.5rem 0.5rem 0;
-    font-size: 1.2rem;
-    line-height: 2rem;
-    padding: 0 0.8rem;
-    background-color: transparent;
+.loginForm__userInput-field .password-input {
+  border: 0.15rem solid var(--color-main);
+  border-radius: 0 0.5rem 0.5rem 0;
+  display: grid;
+  grid-template-columns: 85% 15%;
 }
 
-.loginForm__help{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin: 0 auto;
+.loginForm__userInput-field .password-input > input {
+  font-size: 1.2rem;
+  line-height: 2rem;
+  padding: 0 0.8rem;
+  background-color: transparent;
 }
 
-.loginForm__help label{
-    align-self: center;
-    font-size: 1rem;
-    padding-top: 15px;
-    text-align: center;
+.css-i4bv87-MuiSvgIcon-root {
+  width: 10%;
+  margin: auto 0.5rem;
+  color: var(--color-main);
+  opacity: 0.8;
+  cursor: pointer;
+  transition: var(--transition);
 }
 
-#rememberAcc{
-    transform: scale(1.5);
-    margin-right: 0.8rem;
+.css-i4bv87-MuiSvgIcon-root:hover {
+  opacity: 1;
 }
 
-.loginForm__help a{
-    align-self: center;
-    font-size: 1rem;
-    text-align: right;
-    right: 0;
+.loginForm__userInput-field > input {
+  border: 0.15rem solid var(--color-main);
+  border-radius: 0 0.5rem 0.5rem 0;
+  font-size: 1.2rem;
+  line-height: 2rem;
+  padding: 0 0.8rem;
+  background-color: transparent;
 }
 
-.loginForm__submit{
-    margin: 0 auto;
-    font-size: 1.5rem;
+.loginForm__help {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0 auto;
 }
 
-.loginForm__cta{
-    text-align: center;
-    margin: 0 auto;
+.loginForm__help label {
+  align-self: center;
+  font-size: 1rem;
+  padding-top: 15px;
+  text-align: center;
+}
+
+#rememberAcc {
+  transform: scale(1.5);
+  margin-right: 0.8rem;
+}
+
+.loginForm__help a {
+  align-self: center;
+  font-size: 1rem;
+  text-align: right;
+  right: 0;
+}
+
+.loginForm__submit {
+  margin: 0 auto;
+  font-size: 1.5rem;
+}
+
+.loginForm__cta {
+  text-align: center;
+  margin: 0 auto;
 }
 
 /* ========== Media Queries (MEDIUM DEVICES): ========== */
 @media screen and (max-width: 1800px) {
-    .loginForm{
-        width: calc(var(--container-width-md) - 55%);
-    }
+  .loginForm {
+    width: calc(var(--container-width-md) - 55%);
+  }
 
-    .loginForm__fields{
-        width: var(--container-width-md);
-    }
-    
+  .loginForm__fields {
+    width: var(--container-width-md);
+  }
 }
 
 @media screen and (max-width: 1200px) {
-    .loginForm{
-        width: calc(var(--container-width-md) - 40%);
-        margin-top: 4rem;
-    }
+  .loginForm {
+    width: calc(var(--container-width-md) - 40%);
+    margin-top: 4rem;
+  }
 
-    .loginForm__userInput-field input{
-        font-size: 1rem;
-        line-height: 1.5rem;
-    }
+  .loginForm__userInput-field input {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
 
-    .loginForm__submit{
-        margin: 0 auto;
-        font-size: 1rem;
-    }
-    
+  .loginForm__submit {
+    margin: 0 auto;
+    font-size: 1rem;
+  }
 }
 
 /* ========== Media Queries (SMALL DEVICES): ========== */
 @media screen and (max-width: 720px) {
-    .loginForm{
-        width: var(--container-width-sm);
-        margin-top: 1rem;
-    }
+  .loginForm {
+    width: var(--container-width-sm);
+    margin-top: 1rem;
+  }
 
-    .loginForm__fields{
-        width: var(--container-width-sm);
-    }
-
+  .loginForm__fields {
+    width: var(--container-width-sm);
+  }
 }
