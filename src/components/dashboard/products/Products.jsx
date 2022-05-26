@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Navigate } from "react-router-dom";
 import axios from "axios";
 import "./products.css";
 
@@ -9,19 +10,14 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import CircularProgress from "@mui/material/CircularProgress";
+
 import Searcher from "../../utils/searcher/Searcher";
 import Updater from "../../utils/updater/Updater";
 import Table from "../../utils/table/Table";
 
 const URL = `https://rpa-voucher-exchange.herokuapp.com`;
 const endpoint = `/api/v1/products?page=1`;
-const token = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZV9pZCI6IjQiLCJwcm92aWRlcl9pZCI6IjQiLCJpc3MiOiJnaXRodWIuY29tL250aWtob2EiLCJleHAiOjE2NTM1MzAyMjQsImlhdCI6MTY1MjkyNTQyNH0.8qNbWY_zOisHYM64iMb2z75nbx37Z59TkNsZMD929Q8`;
-const config = {
-  headers: {
-    Authorization: token,
-    "Content-Type": "application/json",
-  },
-};
 
 // const DB_Headers = [
 //   "ID",
@@ -71,6 +67,7 @@ const Products = () => {
   // ========= STATES
   const [checkedList, setCheckedList] = useState([]);
   const [chosenEditItem, setChosenEditItem] = useState();
+  const [isLogOut, setIsLogOut] = useState(false);
   const [winSize, setWinSize] = useState({
     width: window.innerWidth,
     height: window.innerHeight,
@@ -88,13 +85,30 @@ const Products = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
     // TODO: SEND REQUEST to get All products
+    const local_name = localStorage.getItem("name");
+    const local_token = localStorage.getItem("token");
+    if (local_name && local_token) {
+      const config = {
+        headers: {
+          Authorization: "Bearer " + local_token,
+          "Content-Type": "application/json",
+        },
+      };
+      axios
+        .get(URL + endpoint, config)
+        .then((res) => {
+          setProducts(res.data.data.products);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      localStorage.removeItem("name");
+      localStorage.removeItem("token");
+      setIsLogOut(true);
+    }
+
     // if status == 200 : setProducts
-    axios
-      .get(URL + endpoint, config)
-      .then((res) => {
-        setProducts(res.data.data.products);
-      })
-      .catch((err) => console("err: ", err));
   }, []);
 
   const setDimension = () => {
@@ -235,7 +249,9 @@ const Products = () => {
 
   // ========== END OF MODAL HANDLERS
 
-  return (
+  return isLogOut ? (
+    <Navigate to="/login" />
+  ) : (
     <div className="products">
       <div className="products__header">
         <Searcher label="Nhập tên sản phẩm ..." />
@@ -248,13 +264,19 @@ const Products = () => {
         />
       </div>
       <div className="products__content">
-        <Table
-          limit="10"
-          headData={productTableHead}
-          renderHeader={(item, index) => renderHead(item, index)}
-          bodyData={products}
-          renderBody={(item, index) => renderBody(item, index)}
-        />
+        {products.length < 1 ? (
+          <div className="products__content-loader">
+            <CircularProgress color="inherit" />
+          </div>
+        ) : (
+          <Table
+            limit="10"
+            headData={productTableHead}
+            renderHeader={(item, index) => renderHead(item, index)}
+            bodyData={products}
+            renderBody={(item, index) => renderBody(item, index)}
+          />
+        )}
       </div>
 
       {/* REFRESH CONFIRM */}
