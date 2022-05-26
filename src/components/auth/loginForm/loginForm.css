@@ -44,7 +44,7 @@
   margin-bottom: 3rem;
 }
 
-.loginForm__userInput-field label {
+.loginForm__userInput-field > label {
   background-color: var(--color-main);
   color: var(--color-white);
   padding: 0.5rem;
@@ -68,16 +68,15 @@
   background-color: transparent;
 }
 
-.css-i4bv87-MuiSvgIcon-root {
-  width: 10%;
+.password-eye {
   margin: auto 0.5rem;
   color: var(--color-main);
-  opacity: 0.8;
+  opacity: 0.7;
   cursor: pointer;
   transition: var(--transition);
 }
 
-.css-i4bv87-MuiSvgIcon-root:hover {
+.password-eye:hover {
   opacity: 1;
 }
 

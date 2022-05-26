@@ -78,13 +78,17 @@ const LoginForm = (props) => {
                   }}
                 />
                 {isHidden ? (
-                  <VisibilityIcon
-                    onClick={() => setIsHidden(false)}
-                  ></VisibilityIcon>
+                  <label className="password-eye">
+                    <VisibilityIcon
+                      onClick={() => setIsHidden(false)}
+                    ></VisibilityIcon>
+                  </label>
                 ) : (
-                  <VisibilityOffIcon
-                    onClick={() => setIsHidden(true)}
-                  ></VisibilityOffIcon>
+                  <label className="password-eye">
+                    <VisibilityOffIcon
+                      onClick={() => setIsHidden(true)}
+                    ></VisibilityOffIcon>
+                  </label>
                 )}
               </div>
             </div>
