@@ -10,7 +10,7 @@ function page404() {
       <div className="page404">
         <div className="page404_content">
           <p className="header_404"> 404</p>
-          <p className="header_404_1">PAGE NOT FOUND</p>
+          <p className="header_404_1">Trang không tồn tại</p>
           <div className="page404_form">
             <p>Trang bạn đang tìm kiếm hiện không khả dụng. </p>
             <p>Bạn có muốn quay lại trang chủ không?</p>

@@ -9,6 +9,7 @@ import {
 
 import Dashboard from "./components/dashboard/Dashboard";
 import Auth from "./components/auth/Auth";
+import Page404 from "./components/dashboard/page404/Page404";
 const AppRouter = () => {
   let navigate = useNavigate();
   const handleNavigate = (m) => {
@@ -48,6 +49,10 @@ const AppRouter = () => {
           exact
           path="/vmachine"
           element={<Dashboard lct="vmachine" />}
+        ></Route>
+         <Route
+path='*'
+          element={<Page404 />}
         ></Route>
       </Routes>
     </div>
