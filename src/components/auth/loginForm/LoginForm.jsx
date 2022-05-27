@@ -19,9 +19,16 @@ const endpoint = `/api/v1/auth/login`;
 const LoginForm = (props) => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  const [isRemember, setIsRemember] = useState("false");
+  const [isRemember, setIsRemember] = useState(false);
   const [isWaiting, setIsWaiting] = useState(false);
   const [isHidden, setIsHidden] = useState(true);
+
+  window.onbeforeunload = function () {
+    if (!isRemember) {
+      localStorage.removeItem("token");
+      localStorage.removeItem("name");
+    }
+  };
 
   const formSubmitHandler = () => {
     setIsWaiting(true);
