@@ -10,6 +10,7 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import "./loginForm.css";
 import "./forgotPassword/ForgotPassword";
 import FormForgotPassword from "./forgotPassword/ForgotPassword";
+import ServerResponse from "../../../objects/ServerResponse";
 
 const label_NhoMK = { inputProps: { "aria-label": "Nhớ Mật Khẩu" } };
 
@@ -40,14 +41,18 @@ const LoginForm = (props) => {
       .post(url + endpoint, body)
       .then((res) => {
         setIsWaiting(false);
-        props.handleLoginMsg({ code: "200", msg: "Đăng nhập thành công" });
-        localStorage.setItem("name", res.data.data.name);
-        localStorage.setItem("token", res.data.data.token);
+        console.log(res);
+        res = ServerResponse(res);
+        props.handleLoginMsg({ code: res.status, msg: res.message});
+        localStorage.setItem("name", res.data.name);
+        localStorage.setItem("token", res.data.token);
       })
       .catch((err) => {
         console.log("error: ", err);
+        err = ServerResponse(err);
+        console.log(err);
         setIsWaiting(false);
-        props.handleLoginMsg({ code: "401", msg: "Đăng nhập thất bại" });
+        props.handleLoginMsg({ code: err.status, msg: err.message });
       });
   };
 

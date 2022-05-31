@@ -39,7 +39,7 @@ const Auth = (props) => {
       >
         <Alert
           onClose={handleClose}
-          severity={msg.code === "200" ? "success" : "error"}
+          severity={msg.code === 200 ? "success" : "error"}
           sx={{ width: "100%" }}
         >
           {msg.msg}

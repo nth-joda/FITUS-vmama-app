@@ -13,7 +13,7 @@ import Page404 from "./components/dashboard/page404/Page404";
 const AppRouter = () => {
   let navigate = useNavigate();
   const handleNavigate = (m) => {
-    if (m.code === "200") {
+    if (m.code === 200) {
       navigate("/dashboard");
     }
   };
@@ -51,7 +51,7 @@ const AppRouter = () => {
           element={<Dashboard lct="vmachine" />}
         ></Route>
          <Route
-path='*'
+          path='*'
           element={<Page404 />}
         ></Route>
       </Routes>
